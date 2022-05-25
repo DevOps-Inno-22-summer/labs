@@ -1,47 +1,107 @@
-# Labs
+# DevOps Engineering Labs
 
-## Introduction
+The Innopolis University DevOps labs summer 2022 solutions
+from Danila Goriachkin MSS-21.
 
-Welcome to DevOps course labs. All labs are practical and will be built on each other. You will implement simple application, containerize it, implement simple tests, build CI/CD, collect metrics, logs, etc.
+## Authors
 
-## Architecture
+| Name              | E-mail            | Telegram | GitHub   |
+| ----------------- | ----------------- | -------- | -------- |
+| Danila Goryachkin | dndv279@gmail.com | @dndv279 | @DanilaG |
 
-This repository contains master branch with introduction and one branch with instructions for each lab. 
+## Moscow time
 
-## Rules
+The web application that shows Moscow time.
 
-Each labs requires the participant to pass all previous labs, therefore participants are required **to submit each lab (and get at least 60% of max grade for each lab) to pass the course**.
+### Install
 
-Grading is based on PRs with your solutions to the corresponding branch of this repository. This repository is read-only for all participants, therefore to be able to create pull requests, a participant should fork this repository to his own workspace and solve labs there. It is recommended to build solution of lab N upon solution of lab N-1, so choose workflow in your fork of this repository wisely. Structure of your repository will not affect your grade, only state of your repository from which the PR is created will be checked and graded (state after last commit in your PR on corresponding lab).
+Install all dependency by the following command:
 
-### Recommended workflow
+```
+pip3 install -r app_python/requirements.txt
+```
 
-#### For the first lab
-1. Fork this repository on your workspace
-2. Checkout master branch
-3. Complete lab1 tasks
-4. Push the code to your repository
-5. Create PR to lab1 branch on this repository
-6. Wait for your grade
+### Run
 
-#### For all other labs
-1. Checkout the commit where you finished the previous lab
-2. Complete tasks of current lab
-3. Push the code to your repository
-4. Create PR to labN branch on this repository
-5. Wait for your grade
+- Set `main.py` as a flask app file:
 
-## Grading 
+```
+export FLASK_APP=app_python/main.py
+```
 
-Each lab is marked out of 10. All labs have a set of main tasks and a set of extra tasks. 
+- Set development mode in flask:
 
-Completing main tasks correctly will give you 10 points out of 10. Completing extra tasks correctly will give you N (depends on the complexity of extra tasks) additional points. Your points for main and extra tasks will be summed and cut to 10 if you have more than 10. Basically, extra points will allow you to get max points even if some main tasks are not finished correctly, but will not give you more points for the course.
+```
+export FLASK_ENV=development
+```
 
-## Deadlines and labs distribution
+- Run flask:
 
-Participants will be provided 2 labs simultaneously and have 1 week to submit solutions. Moodle will contain presentations and deadlines. Nothing is required to be submitted there.
+```
+flask run
+```
 
-### Late submission policy
+- Open [`http://127.0.0.1:5000`](http://127.0.0.1:5000) at a browser.
 
-Submitting results after the deadline will result in maximum of 6 points for the corresponding lab. As stated before, all labs must be submitted to pass the course. 
+### Testing
 
+Run `time_provider_test.py` in the app_python for test execution:
+
+```
+cd app_python
+python3 -m unittest time_provider_test.py
+```
+
+### Static analyzes
+
+#### .py files
+
+We use `flake8`.
+
+*Install:*
+
+```
+pip3 install flake8
+```
+
+*Run:*
+
+```
+flake8 app_python
+```
+
+#### .html files
+
+We use `tidy-html5`.
+
+*Install:*
+
+```
+brew install tidy-html5
+```
+
+*Run:*
+
+```
+tidy app_python/templates/index.html
+```
+
+#### .md files
+
+We use `mdl`.
+
+*Install:*
+
+```
+gem install mdl
+```
+
+*Run:*
+
+```
+mdl .
+```
+
+### Licence
+
+We use [MIT License](app_python/LICENSE).
