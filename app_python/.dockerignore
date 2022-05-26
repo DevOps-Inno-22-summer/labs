@@ -1,0 +1,8 @@
+*
+**/*
+
+!*.py
+!**/*.py
+!templates/*.html
+!requirements.txt
+!LICENSE
