@@ -52,6 +52,24 @@ cd app_python
 python3 -m unittest time_provider_test.py
 ```
 
+### Docker
+
+The program image on docker hub [here](https://hub.docker.com/r/danilag/app-python).
+
+#### Run docker
+
+```
+docker run -i -t -p 6123:5000 danilag/app-python
+```
+
+where 6123 is outside container port.
+
+#### Build image
+
+```
+docker build --tag danilag/app-python ./app_python
+```
+
 ### Static analyzes
 
 #### .py files
