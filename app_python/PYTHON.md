@@ -1,16 +1,6 @@
-# DevOps Lab 1
+# Python Best Practices
 
-Python framework selected is [Flask](https://flask.palletsprojects.com/en/2.1.x/). It is production ready.
-
-A test script is included to test generating the time and the HTML.
-
-Linter used is [pylint](https://pylint.pycqa.org/en/latest/). The missing pydocs warning is turned off; due to adequate method names.
-
-Markdown linter is the VS Code extension [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
-
-## Best Practices
-
-The article [Python Best Practices – Every Python Developer Must Know]((https://data-flair.training/blogs/python-best-practices/)) by [Data Flair Training](https://data-flair.training/) as the main resource for best practices.
+The article [Python Best Practices – Every Python Developer Must Know](https://data-flair.training/blogs/python-best-practices/) by [Data Flair Training](https://data-flair.training/) is used as the main resource for best practices.
 Many best practices are copied as is from the article.
 
 - Create a Code Repository and Implement Version Control
