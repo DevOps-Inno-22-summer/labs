@@ -1,16 +1,25 @@
-# app_flutter
+# DevOps Flutter Project
 
-A new Flutter project.
+This Flutter web project displays the current time in Moscow.
 
-## Getting Started
+It follows all the standard rules and conventions of Flutter.
 
-This project is a starting point for a Flutter application.
+Flutter comes with its own linter, which is used in this project.
 
-A few resources to get you started if this is your first Flutter project:
+## Run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Run the following command in the command line
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```console
+flutter run
+```
+
+and select Chrome (web)
+
+## Build
+
+```console
+flutter build web
+```
+
+The output could be found in the `build/web` directory.
