@@ -30,12 +30,18 @@ python main.py
 pytest test.py
 ```
 
-4. Dockerfile.
+4. Docker.
 
 You can find image [here](https://hub.docker.com/repository/docker/nastyru/flask-app-current-time).
 
-And to run app.
+And to run app locally.
 ```sh
 docker image build -t flask_docker .
 docker run -p 5001:5000 -d flask_docker
+```
+
+Or using image from DockerHub.
+```sh
+docker pull nastyru/flask-app-current-time:latest
+docker run -d -p 5002:5000 nastyru/flask-app-current-time:latest
 ```
