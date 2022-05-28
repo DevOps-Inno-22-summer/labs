@@ -29,3 +29,13 @@ pip install -r requirements.txt
 python main.py
 pytest test.py
 ```
+
+4. Dockerfile.
+
+You can find image [here](https://hub.docker.com/repository/docker/nastyru/flask-app-current-time).
+
+And to run app.
+```sh
+docker image build -t flask_docker .
+docker run -p 5001:5000 -d flask_docker
+```

@@ -1,6 +1,10 @@
 # firstly, python image
 FROM python:3.9-alpine
 
+# create user instead of root
+RUN adduser --home /app --shell /bin/sh --uid 1000 --disabled-password appuser
+USER appuser
+
 # expose port
 EXPOSE 5000
 
@@ -17,4 +21,4 @@ COPY . .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # run app
-ENTRYPOINT [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
