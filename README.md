@@ -1,15 +1,31 @@
-# 1
+# DevOps course at Innopolis University
 
-## Web application
+## Task
 
-1. Create `app_python` folder for your application and PYTHON.md inside.
-2. Develop and test a simple Python web application, that shows current time in Moscow.
-> Research and use best practices and prod ready frameworks. Use linters for Python and Markdown. Don't forget to test it, time must be updated with a page refreshing.
-3. Update a PYTHON.md file and describe all best practices that you could find. 
-4. Remove content of README.md file with rules for the course and describe your application instead. Description should be in Markdown format.
-> Research and use any good template that you like.
-## Bonus
+Python web application, that shows current time in Moscow.
 
-1. Create `app_*` folder in the main project, replace `*` with language that you choose (not python). Put new `*`.md inside that folder.
-2. Create your own web app, it's up to you what it will show or do, use your imagination.
-3. Follow all suggestions and steps from the main task. 
+## Getting Started
+
+1. Need to be installed: Python 3.9+, pip.
+
+2. Clone repository and go to folder with app.
+
+```sh
+git clone git@github.com:NastyRu/DevOps_labs.git
+cd DevOps_labs/app_python
+```
+
+3. Create virtual environment and install packages.
+
+```sh
+python3 -m venv env
+. ./env/bin/activate
+pip install -r requirements.txt
+```
+
+4. Now you can run the application and tests.
+
+```sh
+python main.py
+pytest test.py
+```
