@@ -1,21 +1,22 @@
-# 2
+## Web application
 
-## Containerization
+Flask is a production ready web framework that is used in many industrial projects successfully.
+It is a very simple framework and best suited to small projects. It's also relatively fast both in terms of execution and development time.
 
-1. Create a `Dockerfile` for your application in `app_python` folder.
-> Research and use best practices. Use linter for Dockerfile.
-2. Write a DOCKER.md file and describe all best practices that you could find.
-> The more practices you will list the more points you will get.
-3. Build an image and test it, make sure it works!
-4. Create a public `docker hub` account if you don't have. Push your image there.
-5. Run the image from your account and test it.
-6. Update README.md in your root folder. Add the `Docker` section.
-> You can also check for README.md templates.
-7. Create a commit and push it to your repository.
+## Run on local machine
+Go to the app_python folder and run `python -m flask run` which runs the applications.
+You can then go to `http://127.0.0.1:5000` to see the web application browser.
 
+## Run on docker
+The public repository is available in docker hub. You can pull the repository and run it in the following way. TO pull the docker image run:
+```
+    docker pull megara/devops-app-python
+```
 
-## Bonus
+In order to run the container execute the following command:
 
-1. Create a `Dockerfile` for the app that you created in the previous lab.
-2. Follow all steps and suggestions from the main task.
-3. Read about `Docker multi-stage builds`. Implement, if it makes a sense only.
+```
+    docker run megara/devops-app-python
+```
+
+The logs show at what address the app is running inside the container (with a link to it). You can follow that link on browser and see the result.
