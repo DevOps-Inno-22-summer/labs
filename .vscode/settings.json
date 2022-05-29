@@ -1,6 +1,9 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--disable=E0401"
+    ],
     "python.testing.pytestArgs": [
         "tests"
     ],
