@@ -2,7 +2,7 @@
 from datetime import datetime, timezone, timedelta
 import pytest
 from httpx import AsyncClient
-from app_python.main import app
+from src.main import app
 
 @pytest.mark.anyio
 async def test_moscow_time():

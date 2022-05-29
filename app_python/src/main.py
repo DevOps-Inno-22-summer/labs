@@ -1,6 +1,6 @@
 """System module"""
 from fastapi import FastAPI
-from app_python.helpers.current_time import current_moscow_time
+from src.helpers.current_time import current_moscow_time
 
 app = FastAPI(title='DevOps Lap API')
 
