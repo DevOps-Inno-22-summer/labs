@@ -1,0 +1,5 @@
+# IDE and editor related folders
+venv/
+.vscode/
+.idea/
+__pycache__/
