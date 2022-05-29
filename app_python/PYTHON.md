@@ -14,5 +14,6 @@ FastAPI framework is a modern, fast (high-performance), web framework for buildi
     - Using third party module called pytz
 
   Since our application is specified only for Moscow time. It is better to not use external library. This will help us to avoid the disadvantages that mentioned in this [article](https://www.scalablepath.com/back-end/third-party-libraries).
+- For unit testing I'm using pytest 
 
 
