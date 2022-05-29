@@ -4,7 +4,7 @@
 
 Production readiness refers to when a certain application or a program will be ready to operate and be capable of handling production-level traffic, data and security. The application should be also available for all the intended users.
 
-FastAPI framework is a modern, fast (high-performance), web framework for building APIs with Python. It is easy to learn, fast to code, ready for production. One of the features that make FastAPI better than Flask that it is Build on ASGI (Asynchronous Server Gateway Interface) server.
+FastAPI framework is a modern, fast (high-performance), web framework for building APIs with Python. It is easy to learn, fast to code, ready for production. It produce a neat auto-generated swagger documentation. One of the features that make FastAPI better than Flask that it is Build on ASGI (Asynchronous Server Gateway Interface) server.
 
 ## Description of the best practices  
 
@@ -22,3 +22,5 @@ FastAPI framework is a modern, fast (high-performance), web framework for buildi
   - For test layout, I used **Tests outside application code** layout.
 - For check markdown files and flag style issues, I'm using markdownlint extension in vscode.  
 - Using Run and Debug extension that vscode provide to debug our code easily.
+- For monitoring Maintainability and Cyclomatic complexity of the code, I'm using [Wily](https://github.com/tonybaloney/wily?ref=morioh.com&utm_source=morioh.com).
+- For check security threats in the code I'm using [Bandit](https://github.com/PyCQA/bandit).

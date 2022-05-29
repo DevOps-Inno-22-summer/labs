@@ -51,4 +51,22 @@
         pytest
         ```
 
+9. For checking the code against security issues run the following command:
+
+    ```text
+    bandit -r app_python
+    ```
+
+10. For checking the maintainability of the code run the following command once:
+
+    ```text
+    wily build app_python/
+    ```
+
+    then run the following command each time you need a report:
+
+    ```text
+    wily report app_python
+    ```
+
  [version-badge]: https://img.shields.io/badge/version-1.0-blue.svg
