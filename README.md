@@ -1,5 +1,3 @@
-# 1
-
 ## Web application
 
 Flask is a production ready web framework that is used in many industrial projects successfully.
