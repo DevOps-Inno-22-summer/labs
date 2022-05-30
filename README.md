@@ -10,3 +10,4 @@ Django has wcgi and routing for http requests.
 
 ## Docker
 setup docker file 
+docker image pushed to [dockerhub](https://hub.docker.com/repository/docker/nyahonk/devops_course/tags)
