@@ -11,5 +11,5 @@
 11. Build context and dockerignore 12. Layer sanity
 13. Using pipes
 14. Image scanning
-15. Linting
+15. Linting: https://hadolint.github.io/hadolint/#:~:text=A%20smarter%20Dockerfile%20linter%20that,Bash%20code%20inside%20RUN%20instructions.
 16. Include health / liveness checks 17. Sign images and verify signatures
