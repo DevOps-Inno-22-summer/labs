@@ -16,12 +16,6 @@ or
 cd .\app_python\
 flask run
 ```
-## Docker build and run
-```
-docker image build -t devopslab .
-docker run -p 5001:5000 -d devopslab
-```
-
 ## !!! Important for production !!!
 
 Build-in Flask server not ready for production. To use in prod cover flask with WSGI or something like nginx
