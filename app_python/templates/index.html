@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Moscow Time</title>
+  </head>
+  <body>
+    <div align="center" style="padding-top: 20px">
+      <h1>Current Moscow time</h1>
+      <table style="font-size: 30px;">
+        <tr>
+          <th style="padding-right: 10px">Local</th>
+          <td>{{ msk_time.strftime("%H:%M:%S.%f") }}</td>
+        </tr>
+        <tr>
+          <th style="padding-right: 10px">API</th>
+          <td>{{ msk_time_api.strftime("%H:%M:%S.%f") }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

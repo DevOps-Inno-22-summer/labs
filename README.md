@@ -1,47 +1,93 @@
-# Labs
+# Labs for Innopolis DevOps Engineering Summer 2022 Course
 
-## Introduction
+## Getting Started
 
-Welcome to DevOps course labs. All labs are practical and will be built on each other. You will implement simple application, containerize it, implement simple tests, build CI/CD, collect metrics, logs, etc.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Architecture
+### Prerequisites
 
-This repository contains master branch with introduction and one branch with instructions for each lab. 
+* Python3 (versions 3.7+ recommended)
+* Packages specified in requirements.txt
 
-## Rules
+### Installing
 
-Each labs requires the participant to pass all previous labs, therefore participants are required **to submit each lab (and get at least 60% of max grade for each lab) to pass the course**.
+1. Clone the repository
+2. Install dependencies
 
-Grading is based on PRs with your solutions to the corresponding branch of this repository. This repository is read-only for all participants, therefore to be able to create pull requests, a participant should fork this repository to his own workspace and solve labs there. It is recommended to build solution of lab N upon solution of lab N-1, so choose workflow in your fork of this repository wisely. Structure of your repository will not affect your grade, only state of your repository from which the PR is created will be checked and graded (state after last commit in your PR on corresponding lab).
+```
+pip3 install -r requirements.txt
+```
 
-### Recommended workflow
+3. Run main.py
 
-#### For the first lab
-1. Fork this repository on your workspace
-2. Checkout master branch
-3. Complete lab1 tasks
-4. Push the code to your repository
-5. Create PR to lab1 branch on this repository
-6. Wait for your grade
+```
+python3 main.py
+```
 
-#### For all other labs
-1. Checkout the commit where you finished the previous lab
-2. Complete tasks of current lab
-3. Push the code to your repository
-4. Create PR to labN branch on this repository
-5. Wait for your grade
+4. In browser, open 127.0.0.1:5000 (or localhost:5000)
 
-## Grading 
+## Running the tests
 
-Each lab is marked out of 10. All labs have a set of main tasks and a set of extra tasks. 
+To run the tests, execute appropriate `*_tests.py` file. For example, to test `get_time.py` run following command:
 
-Completing main tasks correctly will give you 10 points out of 10. Completing extra tasks correctly will give you N (depends on the complexity of extra tasks) additional points. Your points for main and extra tasks will be summed and cut to 10 if you have more than 10. Basically, extra points will allow you to get max points even if some main tasks are not finished correctly, but will not give you more points for the course.
+```
+python3 .\get_time_tests.py
+```
 
-## Deadlines and labs distribution
+### Expected response
 
-Participants will be provided 2 labs simultaneously and have 1 week to submit solutions. Moodle will contain presentations and deadlines. Nothing is required to be submitted there.
+This response will be provide if all tests in current version of `get_time_tests.py` run successfully
 
-### Late submission policy
+```
+python3 .\get_time_tests.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 2.515s
 
-Submitting results after the deadline will result in maximum of 6 points for the corresponding lab. As stated before, all labs must be submitted to pass the course. 
+OK
+```
 
+### Example of failed test response
+
+This response will be provided if API accessibility test fails
+
+```
+ python3 .\get_time_tests.py
+.F
+======================================================================
+FAIL: test__get_moscow_time_api__api_responds (__main__.TestLexer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File ".\get_time_tests.py", line 9, in test__get_moscow_time_api__api_responds
+    self.assertFalse(res.ok, "API is not responding")
+AssertionError: True is not false : API is not responding
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.349s
+
+FAILED (failures=1)
+```
+
+## Built With
+
+* [pytz](https://pypi.org/project/pytz/) - Olson tz database to get timezone from location
+* [requests](https://requests.readthedocs.io/en/master/) - Lightweight request library to handle API communication
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/) - Chosen framework
+
+Reasons to use Flask:
+
+* **It's popular**: Flask is one of the most popular web frameworks for Python. Because of that, it has an extensive amount of code examples and well documentation, as well as active community.
+* **It's modular**: Flask supports wide variety of modules, which can be used to extend basic Flask functionality.
+* **It's lightweight**: As a consequence of its modularity, Flask only comes with basic functionality built-in and is very lightweight as a result.
+
+## Authors
+
+* **Ilya Nokhrin** - [Telegram](https://t.me/IlyaNokhrin) - [Innopolis Mail](mailto:i.nokhrin@innopolis.university)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgements
+
+* [Template used](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
