@@ -14,11 +14,13 @@
 - Disable the cache when install requirments to keep the Image size as small as possible.
 - Using COPY over ADD since we don't need to add files from an URL or from a tar file.
 - Create build file which containes only the files we want to copy to the container and use "COPY build \app" instead of "COPY . \app".  
-- There is isn't any confidential data copied to the container. We use **.dockerignore** to execlude sensetive files and settings. Also we can pass configuration via environment variables on execution "-e option in docker run" (not needed here). 
+- Grouping multiple commands together to reduce the number of layers
+- There is isn't any confidential data copied to the container. We use **.dockerignore** to execlude sensetive files and settings. Also we can pass configuration via environment variables on execution "-e option in docker run" (not needed here).
 - Running the containers as non-root to prevents malicious code from gaining permissions in the container host and so that not just anyone who has pulled the container from the Docker Hub can gain access to everything on the server.
 - Don't bind to a specific UID for the non-root user.
 - Make executables owned by root and not writable by removing chown command.
+- Including healthcheck instruction in the docker file.
 - Scanning the Image against vulnarabilities using "docker scan Image_name".
 - Debugging our container using vscode.
 
-## Run the image from my account and test it.
+## Run the image from my account and test it
