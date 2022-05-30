@@ -9,10 +9,11 @@ pip install -r requirements.txt
 ```
 ## Local run
 ```
-python app.py
+python .\app_python\app.py
 ```
 or
 ```
+cd .\app_python\
 flask run
 ```
 ## Docker build and run
