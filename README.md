@@ -12,19 +12,29 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 
 1. Clone the repository
-2. Install dependencies
+2. Set `main.py` as a flask app file:
 
 ```
-pip3 install -r requirements.txt
+export FLASK_APP=app_python/main.py
 ```
 
-3. Run main.py
+3. Set development mode in flask:
 
 ```
-python3 main.py
+export FLASK_ENV=development
 ```
 
-4. In browser, open 127.0.0.1:5000 (or localhost:5000)
+4. Run flask:
+
+```
+flask run
+```
+
+5. In browser, open 127.0.0.1:5000 (or localhost:5000)
+
+6. If previous steps are performed successfully, you should see this data
+
+![Main screen](./images/screen.png)
 
 ## Running the tests
 
@@ -67,6 +77,39 @@ Ran 2 tests in 0.349s
 
 FAILED (failures=1)
 ```
+
+## Docker
+
+Docker image is [hosted on docker hub](https://hub.docker.com/r/ilyanokhrin/app-python).
+
+### Build image
+
+```
+docker build -t ilyanokhrin/app-python .
+```
+
+### Run docker
+
+```
+docker run -p 5000:5000 ilyanokhrin/app-python
+```
+
+### Expected output
+
+If everything is performed successfully, you should see following output:
+
+```
+docker run -p 5000:5000 ilyanokhrin/app-python
+ * Serving Flask app 'main.py' (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000 (Press CTRL+C to quit)
+ ```
+
+ After that, page can be accessed on [port 5000 of localhost](http://127.0.0.1:5000)
 
 ## Built With
 
