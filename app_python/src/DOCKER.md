@@ -23,4 +23,8 @@
 - Scanning the Image against vulnarabilities using "docker scan Image_name".
 - Debugging our container using vscode.
 
-## Run the image from my account and test it
+## Run the image from my account and test
+
+- You can find the image published on [DockerHub](https://hub.docker.com/repository/docker/raghadsy/repo_2).
+- For testing purposes, I used [Play with Docker](https://labs.play-with-docker.com/)
+- I followed the instruction [here](https://docs.docker.com/get-started/04_sharing_app/)

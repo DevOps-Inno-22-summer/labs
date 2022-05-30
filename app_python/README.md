@@ -69,4 +69,28 @@
     wily report src
     ```
 
+## About Dockerfile
+
+- To build an image from the Dockerfile make sure that you create a build folder and add each of **src**,**tests**, **setup.py** to it.
+- You can run a container from an image created from the docker files in 2 ways:
+    1. Using .vscode attached setting. choose run Docker:Python - Fastapi
+    2. Using cmd as the following
+
+        ```text
+        $docker build -t image_name .
+        $docker run -d -p 8000:8000 --name container_name image_name
+        ```
+
+        to check the status of the running container if it is healthy or not by running the command
+
+        ```text
+         $docker inspect --format='' container_name
+        ```
+
+        or by seeing the status of the target container using:
+
+        ```text
+         $docker container ls
+        ```
+
  [version-badge]: https://img.shields.io/badge/version-1.0-blue.svg
