@@ -11,3 +11,7 @@ Django Framework was selected. To see more details take look to [official websit
 To run application use following command in terminal:
 
 - python app.py
+
+## Docker
+
+Docker image is hosted in https://hub.docker.com/repository/docker/rustamait/django_docker_image
