@@ -1,8 +1,5 @@
 ### Best practices
 
-* Flake8 linter used
-* Code formatting according to PEP8 used
-* Unit tests for all the logic of the app
-* Full list of dependencies specified
-* Project structure is the common Django structure
-* .gitignore specified
+* Using docker cache - all the files that change frequently are copied into image lastly so that docker cache can be used
+* docker-compose.yml contains all the necessary instructions and parameters needed for app run - tech details are hidded
+* secret key is generated inside a docker image
