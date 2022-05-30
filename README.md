@@ -6,3 +6,7 @@ Djangj is used as a web application framework.
 
 ## Why Django
 Django has wcgi and routing for http requests.
+
+
+## Docker
+setup docker file 
