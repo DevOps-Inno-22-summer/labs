@@ -52,6 +52,8 @@ cd app_python
 python3 -m unittest time_provider_test.py
 ```
 
+At the moment, the tests check the correctness of the displayed time.
+
 ### Docker
 
 The program image on docker hub [here](https://hub.docker.com/r/danilag/app-python).
