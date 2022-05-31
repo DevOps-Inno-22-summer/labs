@@ -27,10 +27,15 @@ pip install -r requirements.txt
 
 ```sh
 python main.py
+```
+
+5. Now you can run tests, which is getting response form server and checks the correctness of the time to the second.
+
+```sh
 pytest test.py
 ```
 
-4. Docker.
+6. Docker.
 
 You can find image [here](https://hub.docker.com/repository/docker/nastyru/flask-app-current-time).
 
