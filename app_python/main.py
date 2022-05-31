@@ -17,5 +17,6 @@ def main():
     cur_time = current_moscow_time()
     return render_template('time.html', moscow_time=cur_time)
 
+
 if __name__ == '__main__':
     app.run()

@@ -4,11 +4,13 @@ import pytest
 import pytz
 from main import app
 
+
 @pytest.fixture
 def client():
     """Fixture for application."""
     with app.test_client() as client:
         yield client
+
 
 def test_time(client):
     """Test corectness of time without seconds."""

@@ -1,5 +1,9 @@
 # DevOps course at Innopolis University
 
+## CI
+
+![example workflow](https://github.com/NastyRu/DevOps_labs/actions/workflows/ci.yml/badge.svg)
+
 ## Task
 
 Python web application, that shows current time in Moscow.
@@ -27,10 +31,15 @@ pip install -r requirements.txt
 
 ```sh
 python main.py
+```
+
+5. Now you can run tests, which is getting response form server and checks the correctness of the time to the second.
+
+```sh
 pytest test.py
 ```
 
-4. Docker.
+6. Docker.
 
 You can find image [here](https://hub.docker.com/repository/docker/nastyru/flask-app-current-time).
 
