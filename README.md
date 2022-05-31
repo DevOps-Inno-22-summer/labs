@@ -27,3 +27,31 @@ pip install -r requirements.txt
 # Run the app
 python -m flask run
 ```
+
+### Docker
+
+You can find the image [here](https://hub.docker.com/repository/docker/willsem/moscow-local-time).
+
+#### Makefile commands
+
+All commands should be run at `app_python` directory
+
+##### Build image localy
+
+```sh
+make build
+```
+
+##### Run image localy
+
+```sh
+make run
+```
+
+After the run, application would be able at http://localhost:5001
+
+##### Remove the contatiner
+
+```sh
+make clean
+```
