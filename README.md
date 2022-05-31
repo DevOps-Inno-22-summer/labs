@@ -1,5 +1,9 @@
 # DevOps course at Innopolis University
 
+## CI
+
+![example workflow](https://github.com/NastyRu/DevOps_labs/actions/workflows/ci.yml/badge.svg)
+
 ## Task
 
 Python web application, that shows current time in Moscow.
