@@ -23,11 +23,11 @@ docker-compose up -d --build
 
 ## Run built image from Dockerhub
 ```
-docker run --name="telltime_prod" -p 8080:8080 codeomatic/telltime:v0.0.1
+docker run -p 8080:8080 codeomatic/telltime:v0.0.1
 ```
 
 ## Access using browser
-The app will be accessible on http://localhost:8080 
+The app will be accessible on [http://localhost:8080](http://localhost:8080/#/default/current_time_api_v1_current_time_get) 
 
 ## Status
 Lab 2 complete
