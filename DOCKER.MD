@@ -1,0 +1,4 @@
+#Docker Practices
+1. [.dockerignore](https://docs.docker.com/engine/reference/builder/#dockerignore-file) - to minimize build context via excluding all the files that are irrelevant in production environment.
+2. [requirements.txt](https://www.idkrtm.com/what-is-the-python-requirements-txt/#:~:text=txt%20This%20requirements.,root%20directory%20of%20your%20project.) - used for specifying what python packages are required to run the project you are looking at.
+3. Minimization of the number of layers - running all the command within one RUN instruction allowing to minimize the number of RUN instructions.

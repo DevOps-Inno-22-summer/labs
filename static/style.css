@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("images/moscow.jpg");
+    background-size: 170%;
+    background-position: 25% 25%;
+}
+
+h1 {
+    color: white;
+    font-family: sans-serif;
+    text-shadow: #000000 1px 0 10px;
+}
