@@ -39,6 +39,8 @@ jobs:
 
   push:
     runs-on: ubuntu-latest
+    env:
+      working_dir: app_python
     steps:
       - name: Checkout
         uses: actions/checkout@v2
