@@ -7,13 +7,18 @@ From project root:
 pip install -r app_python/requirements.txt
 ```
 
-## Run
+## Run locally
 `python3 app_python/app/server_prod.py`. The app will be served on port 8080.
 
 ## Run tests
 From `app_python` directory run:
 ```
 pytest
+```
+
+## Run prod container locally
+```
+docker-compose up -d --build
 ```
 
 ## Status
