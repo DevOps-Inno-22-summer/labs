@@ -57,5 +57,45 @@ To get a local copy up and running follow these simple steps.
    python3 manage.py runserver
    ```
 
+## Getting Started - Lab 2 
+
+To get the Docker image up and running follow these simple steps.
+
+### Prerequisites 
+
+* Ensure you have docker by running the following command
+  ```sh
+  sudo docker run hello-world
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Danilum/DevOpsCourseLabs.git
+   ```
+2. Enter the working directory
+   ```sh
+   cd DevOpsCourseLabs
+   
+   cd app_python
+   ```
+3. Create the virtual environment
+   ```sh
+   python3 -m venv .venv
+   ```
+4. Activate the virtual environment
+   ```sh
+   source .venv/bin/activate
+   ```
+5. In your new environment, you can run directly from docker hub    
+   ```sh
+   docker run -p 8000:8000 danilkadocker99/moscow_app
+   ```  
+6. Finally open to view on your browser at http://0.0.0.0:8000/ 
 
 
+
+## Contact
+
+Email: [innopolis email](mailto:d.shilintsev@innopolis.ru)
