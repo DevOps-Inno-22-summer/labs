@@ -28,7 +28,7 @@ flask run
 3. [Third](https://flask-russian-docs.readthedocs.io/ru/latest/installation.html#installation)
 
 
-## Docker
+#### Docker
 
 Create image
 `docker image build -t <container-name> .`
@@ -38,3 +38,20 @@ Run container for test
 
 Publish container to the DockerHub
 `docker push <container-name>`
+
+
+## Testing
+
+#### Best practices
+
+- Plan software Tests
+- Use development practices that are Test-Oriented (TDD, patterns)
+- Ensure all Tests are integrated in CI/CD pipeline
+- Use proper type of testing (White-Black box, mutation, random, etc.)
+- Develop requirements that are Testable
+
+#### Run tests
+
+```bash
+python3 -m unittest moscow_time_test
+```
