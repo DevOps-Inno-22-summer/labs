@@ -2,9 +2,9 @@ name: CICD
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ master ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -34,4 +34,3 @@ jobs:
     - name: Test with unittest
       run: |
         -m unitest app_python/moscow_time_test
-        
