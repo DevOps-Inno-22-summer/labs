@@ -1,3 +1,5 @@
+![CI](https://github.com/AlxGration/devopslabs/actions/workflows/cicd.yml/badge.svg)
+
 # Labs
 
 ## Description
