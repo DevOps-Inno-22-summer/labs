@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: Copy your flask app file to the Vagrant servers
+    copy:
+      src: /$PWD/app_python/main.py
+      dest: /home/vagrant/main.py
+  - name: installing pip3
+    apt:
+      name: python3-pip
+      update_cache: yes
+  - name: Installing flask module
+    pip:
+      executable: pip3
+      name: flask
+      state: latest
+  - name: Installing flask module
+    pip:
+      executable: pip3
+      name: pytz
+      state: latest
+  - name: run flask app
+    shell: |
+      nohup python3 main.py
