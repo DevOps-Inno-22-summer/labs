@@ -32,6 +32,12 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Prepare build file for Dockerfile
+      run: |
+        mkdir ./app_python/build
+        cp -r ./app_python/src ./app_python/build/src
+        cp -r ./app_python/tests ./app_python/build/tests
+        cp ./app_python/setup.py ./app_python/build/setup.py
     - name: Login to DockerHub
       uses: docker/login-action@v2
       with:
