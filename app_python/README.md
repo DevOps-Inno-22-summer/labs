@@ -35,3 +35,19 @@ The tests include:
 
 - Testing the time format
 - Testing the HTML response
+
+## Docker
+
+Docker Hub [repository link](https://hub.docker.com/repository/docker/elbatanony/devops-python).
+
+Building the image
+
+```Docker
+docker build -t elbatanony/devops-python:latest .
+```
+
+Running the container
+
+```Docker
+docker run -d -p 5000:5000 --name devops-python elbatanony/devops-python:latest
+```
