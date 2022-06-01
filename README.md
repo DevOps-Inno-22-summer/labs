@@ -1,5 +1,7 @@
 # DevOps Engineering Labs
 
+![app_python ci](https://github.com/DanilaG/devops_labs/actions/workflows/ci.yml/badge.svg)
+
 The Innopolis University DevOps labs summer 2022 solutions
 from Danila Goriachkin MSS-21.
 
