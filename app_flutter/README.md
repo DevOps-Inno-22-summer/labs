@@ -6,6 +6,14 @@ It follows all the standard rules and conventions of Flutter.
 
 Flutter comes with its own linter, which is used in this project.
 
+## Framework
+
+Flutter is a very popular UI framework created by Google.
+It uses one codebase to create apps for all platforms.
+Web is one of the platforms that has been production ready for many months now.
+Flutter has tools for testing, profiling, and it is easy to include in CI/CD pipelines.
+The framework has a very active community and is supported by big companies like Google.
+
 ## Run
 
 Run the following command in the command line
