@@ -8,6 +8,13 @@ A test script is included to test generating the time and the HTML.
 
 The linter used is [pylint](https://pylint.pycqa.org/en/latest/). The missing pydocs warning is turned off; due to adequate method names.
 
+## Framework
+
+Flask is used as it is a light-weight production-ready Python web framework.
+Flask is popular with many examples and tutorials.
+Given the known requirements of the course, Flask should be able to satisfy the needs of the labs.
+Additionally, we discussed this choice in class and the professor approved of it.
+
 ## Serving the app
 
 Run the following command in the command line
