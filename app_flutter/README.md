@@ -31,3 +31,19 @@ flutter build web
 ```
 
 The output could be found in the `build/web` directory.
+
+## Docker
+
+Docker Hub [repository link](https://hub.docker.com/repository/docker/elbatanony/devops-flutter).
+
+Building the image
+
+```Docker
+docker build -t elbatanony/devops-flutter:latest .
+```
+
+Running the container
+
+```Docker
+docker run -dit --name devops-flutter -p 8080:80 elbatanony/devops-flutter:latest
+```
