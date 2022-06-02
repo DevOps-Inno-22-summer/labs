@@ -57,6 +57,7 @@ jobs:
         python -m unittest moscow_time_test
 
   docker:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       -
