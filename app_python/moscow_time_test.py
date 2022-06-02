@@ -6,7 +6,6 @@ from moscow_time import moscow
 
 class TestTime(unittest.TestCase):
 
-
     def test_moscow(self):
         tzone = 'Europe/Moscow'
         localDatetime = datetime.now().astimezone(pytz.timezone(tzone))
