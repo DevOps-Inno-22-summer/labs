@@ -42,18 +42,11 @@ Publish container to the DockerHub
 `docker push <container-name>`
 
 
-## Testing
+## Testing project
 
-#### Best practices
+#### Run unit tests
 
-- Plan software Tests
-- Use development practices that are Test-Oriented (TDD, patterns)
-- Ensure all Tests are integrated in CI/CD pipeline
-- Use proper type of testing (White-Black box, mutation, random, etc.)
-- Develop requirements that are Testable
-
-#### Run tests
-
+from app_python folder
 ```bash
 python3 -m unittest moscow_time_test
 ```
