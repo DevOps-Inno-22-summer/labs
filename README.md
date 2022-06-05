@@ -1,10 +1,10 @@
 # Project for DevOps course
 At this point the app can only tell the current time.
 
-## Install
+## Install for local development
 From project root:
 ```
-pip install -r app_python/requirements.txt
+pip install -r app_python/requirements-dev.txt
 ```
 
 ## Run tests
@@ -14,7 +14,11 @@ pytest
 ```
 
 ## Run locally
-`python3 app_python/app/server_prod.py`. The app will be served on port 8080.
+From `app_python` directory run:
+```
+python3 -m app.server_dev
+```
+The app will be served on port 8080.
 
 ## Run prod container locally
 ```
@@ -30,4 +34,4 @@ docker run -p 8080:8080 codeomatic/telltime:v0.0.1
 The app will be accessible on [http://localhost:8080](http://localhost:8080/#/default/current_time_api_v1_current_time_get) 
 
 ## Status
-Lab 2 complete
+Lab 3 in progress
