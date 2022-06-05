@@ -10,12 +10,11 @@ RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 # Add our application files
 RUN mkdir app
 COPY ./app /app
-WORKDIR /app
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 EXPOSE 8080
 
-CMD ["python3", "server_prod.py"]
+CMD ["python3", "-m", "app"]
 HEALTHCHECK CMD curl --fail http://localhost:8080/api/v1/health || exit 1

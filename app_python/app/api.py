@@ -1,7 +1,8 @@
 from fastapi.routing import APIRouter
 from datetime import datetime
 import pytz
-import schemas
+
+from . import schemas
 
 router = APIRouter()
 

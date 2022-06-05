@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import config
-from middleware import CacheControlHeader
-from api import router
+from . import config
+from .middleware import CacheControlHeader
+from .api import router
 
 
 def build_app(settings: config.Settings):

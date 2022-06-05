@@ -6,7 +6,7 @@ services:
     build:
       context: app_python/
       dockerfile: Dockerfile
-    command: python3 server_prod.py
+    command: python3 -m app
     ports:
       - '8080:8080'
     healthcheck:

@@ -1,6 +1,6 @@
 from uvicorn import Config, Server
-import config
-import factory
+from . import config
+from . import factory
 
 
 if __name__ == '__main__':

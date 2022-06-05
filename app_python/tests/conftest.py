@@ -1,8 +1,11 @@
 import pytest
 from fastapi.testclient import TestClient
+import sys
 
-import config
-import factory
+print(sys.path)
+
+from app import factory
+from app import config
 
 
 @pytest.fixture(scope="session")
@@ -11,7 +14,7 @@ def settings():
 
 
 @pytest.fixture
-def app(settings,):
+def app(settings):
     api_app = factory.build_app(settings)
     return api_app
 

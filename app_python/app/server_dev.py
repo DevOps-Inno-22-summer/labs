@@ -1,6 +1,6 @@
 from uvicorn import Config, Server
-import config
-import factory
+from . import config
+from . import factory
 
 
 if __name__ == '__main__':
@@ -9,7 +9,7 @@ if __name__ == '__main__':
     server = Server(
         Config(
             app,
-            host="0.0.0.0",
+            host="localhost",
             port=8080,
             log_level='debug',
             reload=True,
