@@ -1,8 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-import sys
 
-print(sys.path)
 
 from app import factory
 from app import config
