@@ -1,3 +1,7 @@
+# CI
+
+![example workflow](https://github.com/AsWeSee/devopslabs_summer22/actions/workflows/github-actions-tests.yml/badge.svg)
+
 
 # README
 
