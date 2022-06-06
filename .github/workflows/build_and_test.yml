@@ -22,7 +22,7 @@ jobs:
 
   docker_build_and_push:
     name: Build Image
-    needs: build_and_test
+    # needs: build_and_test
     runs-on: ubuntu-latest
     env:
       IMAGE_TAG: fastapi_test:latest
