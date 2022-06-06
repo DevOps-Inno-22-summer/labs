@@ -22,3 +22,6 @@ In order to run the container execute the following command:
 ```
 
 The logs show at what address the app is running inside the container (with a link to it). You can follow that link on browser and see the result.
+
+## Unit tests
+The application contains unit tests and its integrated into GitHub actions. The pipeline is successful when the application builds and all the tests pass.
