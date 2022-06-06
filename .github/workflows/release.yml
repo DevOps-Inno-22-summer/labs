@@ -29,6 +29,10 @@ jobs:
         run: |
           echo "tags: ${{ steps.meta.outputs.tags }}"
           echo "labels: ${{ steps.meta.outputs.labels }}"
+          echo "ref_name: ${{ github.ref_name}}"
+          echo "ref: ${{ github.ref}}"
+          echo "ref: ${{ github.ref_base}}"
+          echo "GITHUB_REF ${GITHUB_REF##*/}"
      # - name: Build and push Docker image
      #   uses: docker/build-push-action@v3
      #   with:
