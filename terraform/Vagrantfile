@@ -1,0 +1,24 @@
+nodes = [
+  { :hostname => 'vagrant1',   :ip => '192.168.0.42', :box => 'vagrant1_box' },
+  { :hostname => 'vagrant2',   :ip => '192.168.0.43', :box => 'vagrant2_box' },
+  { :hostname => 'vagrant3',   :ip => '192.168.0.44', :box => 'vagrant3_box' },
+]
+
+Vagrant.configure("2") do |config|
+  nodes.each do |node|
+    config.vm.define node[:hostname] do |nodeconfig|
+      nodeconfig.vm.box = "precise32"
+      nodeconfig.vm.hostname = node[:hostname] + ".box"
+      nodeconfig.vm.network :private_network, ip: node[:ip]
+
+      memory = node[:ram] ? node[:ram] : 256;
+      nodeconfig.vm.provider :virtualbox do |vb|
+        vb.customize [
+          "modifyvm", :id,
+          "--cpuexecutioncap", "50",
+          "--memory", memory.to_s,
+        ]
+      end
+    end
+  end
+end
