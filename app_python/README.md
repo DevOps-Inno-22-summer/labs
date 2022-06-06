@@ -1,4 +1,4 @@
-# Getting current time ![version-badge]
+# Getting current time ![version-badge] ![CI workflow] ![Test workflow]
 
 ## Getting Started
 
@@ -94,3 +94,5 @@
         ```
 
  [version-badge]: https://img.shields.io/badge/version-1.0-blue.svg
+ [CI workflow]: https://img.shields.io/github/workflow/status/docker/build-push-action/ci?label=ci&logo=github&style=flat-square
+ [Test workflow]:https://img.shields.io/github/workflow/status/docker/build-push-action/test?label=test&logo=github&style=flat-square
