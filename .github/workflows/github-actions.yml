@@ -39,7 +39,7 @@ jobs:
         python manage.py test
 
   build-image:
-    needs: RunTests
+    needs: build
 
     runs-on: ubuntu-latest
 
