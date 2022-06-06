@@ -10,12 +10,12 @@
 
 1. 3 VMs from VirtualBox
 
-[VMs](../images/vms.png)
+![VMs](../images/vms.png)
 
 2. Workspace with GitHub repo in Terraform Cloud
 
-[Workspace](../images/terraform.png)
+![Workspace](../images/terraform.png)
 
 3. Snippet from Vagrant console output
 
-[Snippet](../images/vagrant-console.png)
+![Snippet](../images/vagrant-console.png)
