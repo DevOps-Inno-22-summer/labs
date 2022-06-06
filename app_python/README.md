@@ -25,16 +25,19 @@ python app.py
 
 ## Testing
 
+The code for this project was written in a modular fashion to facilitate unit testing.
+
 To run the tests, run the following command
 
 ```console
-python app_test.py
+pytest app_test.py
 ```
 
-The tests include:
+The unit tests cover:
 
-- Testing the time format
-- Testing the HTML response
+- Smoke test, i.e., time generation
+- Time formatting
+- HTML response
 
 ## Docker
 
