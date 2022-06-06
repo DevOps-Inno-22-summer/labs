@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build docker
-      run: docker build . --tag test_build_app_python
+      run: docker build . --tag app_python_build
 
     - name: Check code with flake8
       run: docker-compose up --exit-code-from check_django_project --build --remove-orphans check_django_project

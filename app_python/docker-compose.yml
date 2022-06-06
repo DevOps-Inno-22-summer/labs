@@ -3,16 +3,17 @@ services:
   uwsgi_django_project:
     container_name: django_project
     build: .
+    image: app_python_build
     ports:
       - "8000:8000"
     command: uwsgi --http :8000 --module django_project.wsgi
 
   test_django_project:
     container_name: test_django_project
-    image: test_build_app_python
+    image: app_python_build
     command: ./manage.py test
 
   check_django_project:
     container_name: check_django_project
-    image: test_build_app_python
+    image: app_python_build
     command: flake8 django_project/
