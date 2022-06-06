@@ -3,3 +3,4 @@ fastapi==0.78.0
 Pillow==9.0.1
 pytz==2022.1
 uvicorn==0.17.6
+pytest==7.1.2
