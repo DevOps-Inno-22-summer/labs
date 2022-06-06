@@ -1,3 +1,5 @@
+[![CI/CD](https://github.com/Heivory/DevOps-labs/actions/workflows/workflow.yaml/badge.svg)](https://github.com/Heivory/DevOps-labs/actions/workflows/workflow.yaml)
+
 # Moscow Time
 A simple web app that displays current time in Moscow, Russian Federation.
 
@@ -8,7 +10,7 @@ A simple web app that displays current time in Moscow, Russian Federation.
 
 ## You need to do
 1. Clone repository
-2. Creatw virtual environment
+2. Create virtual environment
 3. Install packages from requirements.txt
 4. Run the app
 

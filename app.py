@@ -1,3 +1,5 @@
+'''Run web application'''
+
 from flask import Flask, render_template
 from datetime import datetime, timezone, timedelta
 
@@ -5,8 +7,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
-    timez = timezone(timedelta(hours=3))
-    date = datetime.now(timez)
+    '''Function'''
+    time_zone = timezone(timedelta(hours=3))
+    date = datetime.now(time_zone)
 
     return render_template("home.html", result=date)
 

@@ -17,3 +17,11 @@ We will discuss python's best practices. Disclaimer: not all of them is used by 
 2. Everything is based on Django ORM.
 3. Django web framework is not suitable for smaller projects and products with only a few features and requirements. Django calls for a lot of coding, which takes server processing time and bandwidth while development. 
 4. Have no experience with Django.
+
+#Unit tests best practices
+1. Aim for 100% code coverage
+2. Name your test well
+3. Write reliable and trustworthy unit tests
+4. Make automated unit testing a rule
+5. Unit test should be isolated
+6. Start using headless testing in the cloud
