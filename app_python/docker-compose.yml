@@ -6,3 +6,8 @@ services:
     ports:
       - "8000:8000"
     command: uwsgi --http :8000 --module django_project.wsgi
+
+  test_django_project:
+    container_name: test_django_project
+    build: .
+    command: ./manage.py test

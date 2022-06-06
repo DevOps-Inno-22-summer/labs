@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+defaults:
+  run:
+    working-directory: ./app_python
+
 jobs:
 
   build:
@@ -14,5 +18,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker-compose up
+    - name: Run tests
+      run: docker-compose up --exit-code-from test_django_project --build --remove-orphans test_django_project
+
