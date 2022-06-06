@@ -18,7 +18,7 @@ jobs:
         cd app_python
         pip install -r requirements.txt
     - name: Test with pytest
-      run: ./test.sh
+      run: ./app_python/test.sh
     - name: Archive pytest coverage results
       uses: actions/upload-artifact@v1
       with:
@@ -35,6 +35,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v1
         with:
+          context: "{{defaultContext}}:app_python"
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
