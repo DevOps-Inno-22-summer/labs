@@ -26,7 +26,7 @@ jobs:
 
   docker_build_and_push:
     name: Build Image
-    needs: security_checks
+    needs: build_and_test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
