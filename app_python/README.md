@@ -12,3 +12,8 @@ and Pycharm internal code inspector
 To run application use following command in terminal:
 
 + python app.py
+
+## App testing
+To run tests you should run following command: 
+
++ python manage.py tests
