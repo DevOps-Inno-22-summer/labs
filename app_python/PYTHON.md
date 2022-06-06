@@ -19,3 +19,7 @@ However, PyCharm has already created two extra folders: static and templates whi
 Modern best practices call comments as 'code smells' and the code itself should be readable, and understandable without comments (minimum comments allowed).
  - I tried to avoid reinventing a wheel, and used libraries to implement the app.
  - Also, added requirements.txt file for users to be able to install required packages without problem. It's a standard procedure in python applications to do this.
+
+# Unit tests
+ - Used one of the well-known packages - pytest
+ - Followed the naming conventions
