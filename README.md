@@ -1,3 +1,4 @@
+[![ci](https://github.com/MrTuxedoCrab/Ilya-Nokhrin-labs/actions/workflows/ci.yml/badge.svg)](https://github.com/MrTuxedoCrab/Ilya-Nokhrin-labs/actions/workflows/ci.yml)
 # Labs for Innopolis DevOps Engineering Summer 2022 Course
 
 ## Getting Started
@@ -6,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Python3 (versions 3.7+ recommended)
+* Python3 (versions 3.8+ recommended)
 * Packages specified in requirements.txt
 
 ### Installing
@@ -77,6 +78,22 @@ Ran 2 tests in 0.349s
 
 FAILED (failures=1)
 ```
+
+## Test description
+
+### `get_time_tests.py`
+
+#### `test__get_moscow_time_api__api_responds`
+
+Tested methods: None (accessibility test of external API)
+Performed actions: request is performed to `http://worldtimeapi.org/api/timezone/Europe/Moscow`
+Expected result: request returns with `request.ok` flag set to `True` (request was handled successfully)
+
+#### `test__api_and_local_get_time__time_diff_less_than_2s`
+
+Tested methods: `get_moscow_time`, `get_moscow_time_api`
+Performed actions: both methods are executed, returned timestamps are compared
+Expected result: difference between timestamps is less than 2 seconds (in any direction)
 
 ## Docker
 
