@@ -1,7 +1,8 @@
 # Python Best Practices
 
-The article [Python Best Practices – Every Python Developer Must Know](https://data-flair.training/blogs/python-best-practices/) by [Data Flair Training](https://data-flair.training/) is used as the main resource for best practices.
-Many best practices are copied as is from the article.
+## General
+
+Resource: [Python Best Practices – Every Python Developer Must Know](https://data-flair.training/blogs/python-best-practices/) by [Data Flair Training](https://data-flair.training/).
 
 - Create a Code Repository and Implement Version Control
   - Inlucde a license, a README.md file, a requirements.txt, and a setup script.
