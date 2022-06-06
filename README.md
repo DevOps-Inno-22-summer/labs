@@ -17,6 +17,6 @@ To run application use following command in terminal:
 Docker image is hosted in https://hub.docker.com/repository/docker/rustamait/django_docker_image
 
 
-#Unit testing
+## Unit testing
 
 Run: python manage.py test || docker-compose up test
