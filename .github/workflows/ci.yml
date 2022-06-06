@@ -1,0 +1,97 @@
+name: ci
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build application and lint it with flake8
+    runs-on: ubuntu-latest
+    env:
+      working_dir: app_python
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8
+        if [ -f ${{ env.working_dir }}/requirements.txt ]; then pip install -r ${{ env.working_dir }}/requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # exit on critical errors (syntax errors, undefined names)
+        flake8 ${{ env.working_dir }}/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        # treat rest of the errors as warnings (display, but do not terminate build process)
+        flake8 ${{ env.working_dir }}/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    env:
+      working_dir: app_python
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8"]
+    needs: build
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pytest
+        if [ -f ${{ env.working_dir }}/requirements.txt ]; then pip install -r ${{ env.working_dir }}/requirements.txt; fi   
+    - name: Run tests
+      run: |
+        pytest ${{ env.working_dir }}/get_time_tests.py
+  
+  docker:
+  name: Build, cache and publich docker
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      working_dir: app_python
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: ./${{ env.working_dir }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app-python:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+      - name: Replace old cache with new cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
