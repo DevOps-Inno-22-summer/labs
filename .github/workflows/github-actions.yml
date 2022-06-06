@@ -3,8 +3,6 @@ name: Django CI
 on:
   push:
     branches: [ "master", "lab3" ]
-    paths:
-      - "app_python/**"
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
@@ -36,7 +34,7 @@ jobs:
         pip install -r requirements.txt
     - name: RunTests
       run: |
-        python manage.py test
+        python app_python/manage.py test
 
   build-image:
     needs: build
