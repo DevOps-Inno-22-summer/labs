@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGISTRY: ghcr.io
-      IMAGE_TAG: fastapi_test:latest
+      IMAGE_NAME: fastapi_test:latest
     steps:
       -
         name: Login to DockerHub
