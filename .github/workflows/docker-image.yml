@@ -20,4 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag django_app_build
+      
+    - name: Run tests
+      run: docker-compose up --exit-code-from test --build --remove-orphans test
