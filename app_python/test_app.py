@@ -9,5 +9,5 @@ class Test:
         moscow_timezone = pytz.timezone('Europe/Moscow')
         date_time = datetime.now(moscow_timezone)
         time = app.current_time()
-        response_data_time = datetime.strptime(time[8:], '%Y:%m:%d %H:%M:%S %Z %z')
-        assert (date_time - response_data_time).total_seconds() < 2
+        date_time_str = date_time.strftime('%Y:%m:%d %H:%M:%S %Z %z')
+        assert date_time_str == time[8:]
