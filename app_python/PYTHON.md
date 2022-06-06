@@ -20,6 +20,13 @@ Some important best practices which should be mentioned:
  - Code should be well documented (by documentation or comments)
  - Code should be tested frequently, errors and bugs should be fixed as soon as possible
 
+### Unit tests
+1. Each test should test only small component (like function), single use case at one time
+2. Tests should be simple
+3. Tests should be fast
+4. Tests should not be coupled with implementation logic
+5. Tests should be part of build process
+
 ### Django
 Best practices for Django could be retrieved from https://django-best-practices.readthedocs.io/en/latest/index.html
 Some important best practices which should be mentioned:
