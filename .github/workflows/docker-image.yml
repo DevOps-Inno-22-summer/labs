@@ -33,8 +33,8 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v3
       with:
-          context: ./app_python
-          file: Dockerfile
+          context: /app_python
+          file: app_python/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/django_docker_image:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USER_NAME }}/django_docker_image:buildcache
