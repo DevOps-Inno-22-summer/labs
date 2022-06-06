@@ -63,6 +63,7 @@ jobs:
   docker:
     name: Build, cache and publich docker
     needs: build
+    environment: ci
     runs-on: ubuntu-latest
     env:
       working_dir: app_python
