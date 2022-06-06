@@ -12,7 +12,8 @@
 1. 3 VMs from VirtualBox
 ![Virtualbox](https://github.com/AlxGration/devopslabs/terraform/screen_machines.PNG)
 
-
+2. Workspace with GitHub repo in Terraform Cloud
+![Terraform](https://github.com/AlxGration/devopslabs/terraform/repository.PNG)
 
 ## Commands to run terraform
 
