@@ -6,6 +6,5 @@
 - **Never hardcode** secrets
 - Create **separate environments for secrets** to limit access scope
 - Limit environment variables to the **narrowest possible scope**
-- **Store authors in action metadata** to promote code ownership
 - **Don’t use self-hosted runners** in a public repository, as a pull request with malicious code can compromise your host
 - Don’t use uncertified actions, as they can contain malicious code
