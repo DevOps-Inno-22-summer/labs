@@ -56,3 +56,12 @@ Running the container
 ```Docker
 docker run -d -p 5000:5000 --name devops-python elbatanony/devops-python:latest
 ```
+
+## GitHub Actions
+
+A continuous integration workflow is set up via GitHub Actions that:
+
+- Runs the Python unit tests, and if they pass
+- Builds a Docker image and pushes it to Docker Hub
+
+The workflow jobs use caching to speed up the process.
