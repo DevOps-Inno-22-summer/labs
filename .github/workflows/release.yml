@@ -4,10 +4,6 @@ on:
   push:
     tags: ['v*.*.*']
 
-env:
-  TAG: ${{ github.ref_name }}
-  DEST: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}
-
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -22,11 +18,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
  
-      - name: Tag var print
+      - name: Tag var
         run: |
           echo "ref_name: ${{ github.ref_name }}"
           echo "${GITHUB_REF##*/}"
-          echo "${{ env.DEST }}:${{ env.TAG}}"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
@@ -34,7 +29,7 @@ jobs:
           context: ./app_python
           file: ./app_python/Dockerfile
           push: true
-          tags: ${{ env.DEST }}:${{ env.TAG}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}:${GITHUB_REF##*/}
 
       - name: Create Release
         id: create_release
