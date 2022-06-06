@@ -4,7 +4,7 @@
 ## Install (Windows)
 ```
 python -m venv env
-.\venv\Scripts\activate
+.\env\Scripts\activate
 pip install -r requirements.txt
 ```
 ## Local run
@@ -25,3 +25,9 @@ To use pylint run
 ```
 pylint app.py
 ```
+
+
+## Tests
+'''
+pytest .\app_python\tests.py
+'''
