@@ -6,13 +6,18 @@ name: fastapi-github-actions-test
 on: 
   #Trigger the workflow on a push event to the master branch only
   push: 
-    branches: [lab3-solution]
+    branches: ["lab3-solution" , "master"]
 
 #A workflow job running sequentially
 jobs:
   build:
     #runs-on: defines The workflow runner
     runs-on: ubuntu-latest 
+    
+    defaults:
+      run:
+        working-directory: app_python
+
     #steps: defines a series of tasks executed by the Job
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +33,6 @@ jobs:
     #Task for installing dependencies, multi-line command
     - name: Install dependencies
       run: |
-        cd app_python
         python -m pip install --upgrade pip
         python -m pip install black pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
