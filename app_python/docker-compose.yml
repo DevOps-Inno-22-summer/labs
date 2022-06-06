@@ -14,5 +14,5 @@ services:
 
   test:
       container_name: test_container
-      image: django_app_build
+      image: rustamait/django_docker_image
       command: ./manage.py test
