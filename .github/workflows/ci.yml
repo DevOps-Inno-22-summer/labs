@@ -61,7 +61,7 @@ jobs:
         pytest ${{ env.working_dir }}/get_time_tests.py
   
   docker:
-  name: Build, cache and publich docker
+    name: Build, cache and publich docker
     needs: build
     runs-on: ubuntu-latest
     env:
