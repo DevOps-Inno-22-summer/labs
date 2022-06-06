@@ -1,4 +1,4 @@
-[![CI/CD](https://github.com/Heivory/DevOps-labs/actions/workflows/workflow.yaml/badge.svg)](https://github.com/Heivory/DevOps-labs/actions/workflows/workflow.yaml)
+[![Workflow](https://github.com/heivory/DevOps-Labs/actions/workflows/workflow.yaml/badge.svg)](https://github.com/heivory/DevOps-Labs/actions/workflows/workflow.yaml)
 
 # Moscow Time
 A simple web app that displays current time in Moscow, Russian Federation.
