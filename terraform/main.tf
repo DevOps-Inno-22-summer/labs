@@ -1,21 +1,20 @@
-terraform {
-  required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
-    }
-  }
+resource "github_repository" "devops_labs" {
+    name    = "devops_labs"
+    description = "DevOps lab 4"
+    visibility = "public"
 }
 
-# Configure the GitHub Provider
-provider "github" {
-    token = var.token
+resource "github_branch_default" "default" {
+  repository = github_repository.devops_labs.name
+  branch     = "master"
 }
 
-provider "github" {
-  app_auth {
-    id              = var.app_id              # or `GITHUB_APP_ID`
-    installation_id = var.app_installation_id # or `GITHUB_APP_INSTALLATION_ID`
-    pem_file        = var.app_pem_file        # or `GITHUB_APP_PEM_FILE`
+resource "github_branch_protection" "devops_labs" {
+  pattern       = "master"
+  repository_id = github_repository.devops_labs.node_id
+  required_linear_history = true
+  required_status_checks {
+    strict   = false
+    contexts = ["ci/travis"]
   }
 }
