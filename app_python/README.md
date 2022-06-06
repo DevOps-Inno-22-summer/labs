@@ -1,4 +1,4 @@
-# Getting current time ![version-badge] ![CI workflow] ![Test workflow]
+# Getting current time ![version-badge] [![CI Status](https://github.com/raghadsalameh1/labs/actions/workflows/python-app.yml/badge.svg?branch=lab3)](https://github.com/raghadsalameh1/labs/actions) ![Test workflow]
 
 ## Getting Started
 
@@ -104,5 +104,4 @@ For eash push or pull request on the bransh master and lab3 a pipeline with the 
     - Build and push the Docker Image.
 
  [version-badge]: https://img.shields.io/badge/version-1.0-blue.svg
- [CI workflow]:(https://github.com/raghadsalameh1/labs/actions/workflows/python-app.yml/badge.svg?branch=lab3)
  [Test workflow]:https://img.shields.io/github/workflow/status/docker/build-push-action/test?label=test&logo=github&style=flat-square
