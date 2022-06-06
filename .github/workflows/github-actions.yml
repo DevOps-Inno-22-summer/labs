@@ -27,4 +27,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python ./DevOpsLabs/app_python/manage.py test
+        python app_python/manage.py test
