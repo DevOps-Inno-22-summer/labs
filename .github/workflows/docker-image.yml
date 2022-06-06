@@ -41,7 +41,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
           context: ./${{ env.working_dir }}
-          file: ./Dockerfile
+          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/django_docker_image:latest
           cache-from: type=local,src=/tmp/.buildx-cache
