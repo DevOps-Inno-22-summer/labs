@@ -19,11 +19,6 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: ./app_python/test.sh
-    - name: Archive pytest coverage results
-      uses: actions/upload-artifact@v1
-      with:
-        name: pytest-coverage-report
-        path: reports/pytest/
 
   docker_build_and_push:
     name: Build Image
