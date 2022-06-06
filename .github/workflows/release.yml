@@ -1,8 +1,9 @@
 # Build and publish containers only for releases
 name: Publish release
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   push_to_registry:
@@ -11,12 +12,6 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}
       
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -30,5 +25,17 @@ jobs:
           context: ./app_python
           file: ./app_python/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}:${{github.ref_name}}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+      
