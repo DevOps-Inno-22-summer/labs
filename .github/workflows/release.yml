@@ -3,7 +3,7 @@ name: Publish release
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'v*'
 
 jobs:
   push_to_registry:
@@ -18,24 +18,34 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v3
-        with:
-          context: ./app_python
-          file: ./app_python/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}:${{github.ref_name}}
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          body_path: CHANGELOG.md
-          draft: false
-          prerelease: false
+          images: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}
+      
+      - name: print meta
+        run: |
+          echo "tags: ${{ steps.meta.outputs.tags }}"
+          echo "labels: ${{ steps.meta.outputs.labels }}"
+     # - name: Build and push Docker image
+     #   uses: docker/build-push-action@v3
+     #   with:
+     #     context: ./app_python
+     #     file: ./app_python/Dockerfile
+     #     push: true
+     #     tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}:${{github.ref_name}}
+
+     # - name: Create Release
+     #   id: create_release
+     #   uses: actions/create-release@v1
+     #   env:
+     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+     #   with:
+     #     tag_name: ${{ github.ref_name }}
+     #     release_name: Release ${{ github.ref_name }}
+     #     body_path: CHANGELOG.md
+     #     draft: false
+     #     prerelease: false
       
