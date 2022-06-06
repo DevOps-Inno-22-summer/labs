@@ -1,3 +1,5 @@
+![Build](https://github.com/war-and-peace/devops_labs/actions/workflows/python-app.yml/badge.svg)
+
 ## Web application
 
 Flask is a production ready web framework that is used in many industrial projects successfully.
