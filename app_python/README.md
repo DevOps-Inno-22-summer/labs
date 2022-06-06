@@ -93,6 +93,16 @@
          $docker container ls
         ```
 
+## About Continous Integration
+
+For eash push or pull request on the bransh master and lab3 a pipeline with the following stages is run:
+    - Installing requiered dependencies.
+    - Lint with pylint
+    - Test with pytest
+    - Prepare build file for Dockerfile
+    - Login to DockerHub
+    - Build and push the Docker Image.
+
  [version-badge]: https://img.shields.io/badge/version-1.0-blue.svg
- [CI workflow]: https://img.shields.io/github/workflow/status/docker/build-push-action/ci?label=ci&logo=github&style=flat-square
+ [CI workflow]:(https://github.com/raghadsalameh1/labs/actions/workflows/python-app.yml/badge.svg?branch=lab3)
  [Test workflow]:https://img.shields.io/github/workflow/status/docker/build-push-action/test?label=test&logo=github&style=flat-square
