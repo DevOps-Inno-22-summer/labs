@@ -9,5 +9,10 @@ services:
 
   test_django_project:
     container_name: test_django_project
-    build: .
+    image: test_build_app_python
     command: ./manage.py test
+
+  check_django_project:
+    container_name: check_django_project
+    image: test_build_app_python
+    command: flake8 django_project/
