@@ -5,7 +5,11 @@ from pytz import timezone
 app = FastAPI()
 
 
-@app.get('/')
-def main():
+def getMoscowTime():
     mscw_time = datetime.now(timezone('Europe/Moscow'))
-    return({"Moscow time": mscw_time.strftime('%Y-%m-%d_%H:%M:%S')})
+    return mscw_time.strftime('%Y-%m-%d_%H:%M:%S')
+
+
+@app.get('/')
+async def main():
+    return({"Moscow time": getMoscowTime()})
