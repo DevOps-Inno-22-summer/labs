@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: Put the script into each Vagrant server
+    copy:
+      src: ../app_python/main.py
+      dest: /home/vagrant/main.py
