@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     name: Build application and lint it with flake8
+    author: Ilya Nokhrin
     runs-on: ubuntu-latest
     env:
       working_dir: app_python
@@ -37,6 +38,7 @@ jobs:
 
   test:
     name: Run tests
+    author: Ilya Nokhrin
     runs-on: ubuntu-latest
     env:
       working_dir: app_python
@@ -62,6 +64,7 @@ jobs:
   
   docker:
     name: Build, cache and publich docker
+    author: Ilya Nokhrin
     needs: build
     environment: ci
     runs-on: ubuntu-latest
