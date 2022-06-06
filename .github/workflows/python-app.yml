@@ -21,13 +21,12 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('app_python/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        echo 'cache not hit'
         python -m pip install --upgrade pip
         if [ -f app_python/requirements.txt ]; then pip install -r app_python/requirements.txt; fi
         pip install -e app_python/.
