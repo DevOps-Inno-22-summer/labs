@@ -2,9 +2,9 @@ name: Python app CI
 
 on:
   push:
-    branches: [ lab3 ]
+    branches: [ master,lab3 ]
   pull_request:
-    branches: [ lab3 ]
+    branches: [ master,lab3 ]
 
 permissions:
   contents: read
@@ -19,16 +19,8 @@ jobs:
       with:
         python-version: "3.10"
         cache: 'pip'
-    # - uses: actions/cache@v3
-    #   with:
-    #     path: ~/.cache/pip
-    #     key: ${{ runner.os }}-pip-${{ hashFiles('app_python/requirements.txt') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-pip
     - name: Install dependencies
-      #if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        echo 'cache not hit'
         python -m pip install --upgrade pip
         if [ -f app_python/requirements.txt ]; then pip install -r app_python/requirements.txt; fi
         pip install -e app_python/.
