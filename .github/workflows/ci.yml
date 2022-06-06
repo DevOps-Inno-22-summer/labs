@@ -1,5 +1,4 @@
 name: ci
-author: Ilya Nokhrin
 
 on:
   push:
