@@ -1,0 +1,102 @@
+name: CI/CD
+on: [push, pull_request]
+
+jobs:
+  linter:
+    name: Linter 🚨
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          cd app_python
+          pip3 install -U pip
+          pip3 install -r requirements.txt
+
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 app_python --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 app_python --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Lint with pylint
+        run: |
+          pip3 install pylint
+          pylint app_python
+
+      - name: Lint with black
+        run: |
+          pip3 install black
+          black app_python
+
+      - name: Lint with isort
+        run: |
+          pip3 install isort
+          isort app_python
+
+      - name: Lint with pycodestyle
+        run: |
+          pip3 install pycodestyle
+          pycodestyle app_python
+
+      - name: Lint with mypy
+        run: |
+          pip3 install mypy
+          mypy app_python
+
+  test:
+    name: Test 🧪
+    runs-on: ubuntu-18.04
+    needs: linter
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          cd app_python
+          pip3 install -U pip
+          pip3 install -r requirements.txt
+
+      - name: Run test
+        run: |
+          cd app_python
+          make test
+
+  publish:
+    name: Publish 🐳
+    runs-on: ubuntu-18.04
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./app_python
+          file: ./app_python/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/moscow-local-time:latest

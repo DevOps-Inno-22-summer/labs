@@ -2,6 +2,8 @@
 
 Alexander Stepanov M21-SE-01
 
+[![CI/CD](https://github.com/Willsem/devops-labs/actions/workflows/cicd.yaml/badge.svg)](https://github.com/Willsem/devops-labs/actions/workflows/cicd.yaml)
+
 ## Moscow local time
 
 The web application that shows Moscow local time.
@@ -26,6 +28,13 @@ pip install -r requirements.txt
 
 # Run the app
 python -m flask run
+```
+
+### Run tests
+
+```sh
+# Inside an app_python folder
+make test
 ```
 
 ### Docker

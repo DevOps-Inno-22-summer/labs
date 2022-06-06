@@ -16,3 +16,6 @@ run:
 clean:
 	docker stop $(docker_image)
 	docker rm $(docker_image)
+
+test:
+	python3 -m unittest *_test.py
