@@ -3,11 +3,15 @@ from flask import Flask
 
 app = Flask(__name__)
 
+moscow_time_zone = timezone(timedelta(hours=3))
+
+
+def format_time(datetime_now):
+    return datetime_now.strftime("%H:%M:%S")
+
 
 def generate_moscow_time():
-    moscow_time_zone = timezone(timedelta(hours=3))
-    time = datetime.now(moscow_time_zone).strftime("%H:%M:%S")
-    return time
+    return format_time(datetime.now(moscow_time_zone))
 
 
 @app.route("/")
