@@ -1,0 +1,41 @@
+name: FastAPI CI/CD
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    name: Build and run Unit Testing
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Test with pytest
+      run: ./app_python/test.sh
+    - name: Archive pytest coverage results
+      uses: actions/upload-artifact@v1
+      with:
+        name: pytest-coverage-report
+        path: reports/pytest/
+
+  docker_build_and_push:
+    name: Build Image
+    needs: security_checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          repository: SimonWT/fastapi_test
+          tags: latest
