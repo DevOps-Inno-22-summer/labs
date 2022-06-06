@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
+defaults:
+  run:
+    working-directory: ./app_python
+
+
 jobs:
 
   build:
