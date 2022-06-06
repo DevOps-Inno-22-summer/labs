@@ -18,10 +18,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
  
-      - name: Tag var
-        run: |
-          echo "ref_name: ${{ github.ref_name }}"
-          echo "${GITHUB_REF##*/}"
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: codeomatic/telltime
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
@@ -29,7 +30,8 @@ jobs:
           context: ./app_python
           file: ./app_python/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.NAME }}:${GITHUB_REF##*/}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Create Release
         id: create_release
