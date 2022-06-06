@@ -36,3 +36,10 @@ For pulling the image from docker hub:
 For running the image:
 
     docker run raminafandi/time-python:time-python
+
+# Testing:
+
+For testing the application:
+
+    cd app_python
+    pytest
