@@ -10,10 +10,10 @@
 ## Screenshots
 
 1. 3 VMs from VirtualBox
-![Virtualbox](https://github.com/AlxGration/devopslabs/terraform/screen_machines.PNG)
+![Virtualbox](https://github.com/AlxGration/devopslabs/blob/master/terraform/screen_machines.PNG)
 
 2. Workspace with GitHub repo in Terraform Cloud
-![Terraform](https://github.com/AlxGration/devopslabs/terraform/repository.PNG)
+![Terraform](https://github.com/AlxGration/devopslabs/blob/master/terraform/repository.PNG)
 
 ## Commands to run terraform
 
