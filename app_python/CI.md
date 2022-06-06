@@ -1,0 +1,7 @@
+# Best Practices
+
+1. Commit early and often: It is important to commit your work often as it is easy to see if your CI works correctly with your new written code.
+2. Secrets: It is important to keep secrets in a secure location. For that, github secrets are good to use as they are not visible to anyone.
+3. Build only once: Creating a fresh build for each stage is a typical mistake. When you rebuild software for new settings, you risk introducing inconsistencies and you can't be sure that all prior tests were passed. Instead, the same build artifact should be promoted through the CI/CD pipeline and eventually published to production.
+4. Clean environment: It's important taking the effort to clean up your pre-production settings between deployments if you want to get the most out of your testing process. It's difficult to keep track of all the configuration changes and upgrades that have been performed to each environment when they've been operating for a long period.
+5. Only way to deploy to production: You don't want to undercut your effort by enabling the process to be bypassed for whatever reason after you've invested in developing a reliable, quick, and secure CI/CD pipeline that gives you confidence in the quality of your builds. The request to bypass the release procedure is usually made because the modification is modest or urgent (or both), but giving in to such demands is a waste of time.
