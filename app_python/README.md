@@ -1,5 +1,7 @@
 # DevOps Python Project
 
+[![Python testing and Docker](https://github.com/ElBatanony/devops-labs/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ElBatanony/devops-labs/actions/workflows/python-ci.yml)
+
 This python project (so far) displays the current time in Moscow (timezone UTC +3).
 
 The Python framework selected is [Flask](https://flask.palletsprojects.com/en/2.1.x/).
