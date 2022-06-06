@@ -4,11 +4,15 @@ version: "3.9"
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: run_container
+    image:  django_app_build
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app_python
     ports:
       - "8000:8000"
+
+  test:
+      container_name: test_container
+      image: django_app_build
+      command: ./manage.py test
