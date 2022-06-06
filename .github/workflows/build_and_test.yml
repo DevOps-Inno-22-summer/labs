@@ -2,12 +2,9 @@ name: FastAPI CI/CD
 
 on:
   push:
-    branches:
-      - '*'
-      - '!master'
+    branches: ['master', '*']
   pull_request:
-    branches:
-      - '*'
+    branches: ['master', '*']
 
 jobs:
   build_and_test:
