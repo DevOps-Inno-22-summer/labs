@@ -22,26 +22,6 @@ jobs:
           pip install flake8
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - name: Lint with pylint
-        run: |
-          pip3 install pylint
-          pylint .
-      - name: Lint with black
-        run: |
-          pip3 install black
-          black .
-      - name: Lint with isort
-        run: |
-          pip3 install isort
-          isort .
-      - name: Lint with pycodestyle
-        run: |
-          pip3 install pycodestyle
-          pycodestyle .
-      - name: Lint with mypy
-        run: |
-          pip3 install mypy
-          mypy .
 
   test:
     name: Test 
