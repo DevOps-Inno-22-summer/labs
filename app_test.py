@@ -9,13 +9,13 @@ class MyTestCase(unittest.TestCase):
     '''Test class'''
     def test_app(self):
         '''Test function'''
-        response = app.test_client.get('/')
+        response = app.test_client().get('/')
 
         time_zone = timezone(timedelta(hours=3))
         date = datetime.now(time_zone)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(True, date in str(response.data))
+        self.assertEqual(True, str(date).split('.')[0] in str(response.data))
 
 
 if __name__ == '__main__':
