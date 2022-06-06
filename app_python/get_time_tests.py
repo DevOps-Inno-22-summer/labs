@@ -6,7 +6,7 @@ class TestLexer(unittest.TestCase):
 
     def test__get_moscow_time_api__api_responds(self):
         res = requests_get('http://worldtimeapi.org/api/timezone/Europe/Moscow')
-        self.assertFalse(res.ok, "API is not responding")
+        self.assertTrue(res.ok, "API is not responding")
 
     def test__api_and_local_get_time__time_diff_less_than_2s(self):
         api_time = GetTime.get_moscow_time_api()
