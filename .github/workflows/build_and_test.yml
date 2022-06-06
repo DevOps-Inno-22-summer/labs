@@ -25,6 +25,7 @@ jobs:
     # needs: build_and_test
     runs-on: ubuntu-latest
     env:
+      REGISTRY: ghcr.io
       IMAGE_TAG: fastapi_test:latest
     steps:
       -
