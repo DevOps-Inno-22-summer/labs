@@ -1,7 +1,6 @@
 FROM python:3.9-alpine
 
-RUN apk add --no-cache \
-    curl=7.80.0-r1
+RUN apk add --no-cache curl
 
 # Copy python requirements file
 COPY requirements.txt /tmp/requirements.txt
