@@ -1,0 +1,9 @@
+resource "github_repository" "devops" {
+   name = "DevOps-Inno-22-summer-labs"
+ }
+
+ resource "github_branch" "lab4" {
+   repository = github_repository.devops.name
+   branch     = "lab4"
+   source_branch = "lab4"
+ } 
