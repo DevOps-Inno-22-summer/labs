@@ -65,3 +65,5 @@ A continuous integration workflow is set up via GitHub Actions that:
 - Builds a Docker image and pushes it to Docker Hub
 
 The workflow jobs use caching to speed up the process.
+
+Rerun CI Test.
