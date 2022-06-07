@@ -5,9 +5,8 @@ from datetime import datetime
 
 
 class HomeTest(TestCase):
-
     @mock.patch('pages.views.datetime')
-    def test_returned_correct_time(_, mocked_datetime):
+    def test_correct_time(_, mocked_datetime):
         mocked_datetime.now.return_value = datetime(2022, 1, 1)
         c = Client()
         response = c.get('/')
