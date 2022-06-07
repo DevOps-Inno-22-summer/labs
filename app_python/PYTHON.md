@@ -20,3 +20,15 @@
 - Write Readable Code
 - Use Virtual Environments
 - Write Object-Oriented Code
+
+# Best practices for Unit testing  
+
+- Tests Should Be Fast
+- Tests Should Be Simple
+- Test Shouldn’t Duplicate Implementation Logic  
+- Tests Should Be Readable  
+- Tests Should Be Deterministic  
+- Make Sure They’re Part of the Build Process  
+- Distinguish Between The Many Types of Test Doubles and Use Them Appropriately  
+- Adopt a Sound Naming Convention for Your Tests 
+- Don’t Couple Your Tests With Implementation Details  

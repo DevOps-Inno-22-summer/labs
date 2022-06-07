@@ -95,6 +95,12 @@ To get the Docker image up and running follow these simple steps.
 6. Finally open to view on your browser at http://0.0.0.0:8000/ 
 
 
+## Unit tests
+
+In order to run the tests, perform the following:  
+```sh
+   pytest
+```  
 
 ## Contact
 
