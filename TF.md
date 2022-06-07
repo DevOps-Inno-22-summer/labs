@@ -23,3 +23,23 @@ Source: [Terraform Best Practices Repository](https://github.com/ozbillwang/terr
   - A tool named `terraform-docs` can do the job for you
 - Terraform version manager
   - You can manage multiple terraform versions with `tfenv`
+
+## Screenshots
+
+[GitHub repo link](https://github.com/elbatanony-devops/devops-terraform)
+
+### Vagrant with 3 VMs running in Virtual Box
+
+![Vagrant 3 VMs](screenshots/terraform/vagrant-vms.png)
+
+### Default Branch (by Terraform Config)
+
+![Default Branch](screenshots/terraform/default-branch.png)
+
+### Branch Protection (by Terraform Config)
+
+![Branch Protection](screenshots/terraform/branch-protection.png)
+
+### BONUS: Organization teams with members invitations (by Terraform Config)
+
+![Team members](screenshots/terraform/safinsaf-team.png)
