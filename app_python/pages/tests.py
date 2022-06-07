@@ -1,21 +1,20 @@
 from django.test import TestCase
-
-from django.test import SimpleTestCase
-
-from freezegun import freeze_time
-from datetime import datetime, timezone, timedelta
-import pytz
-
-timezone_moscow = pytz.timezone('Europe/Moscow')
+from django.test import Client
+from unittest import mock
+from datetime import datetime
 
 
-# Create your tests here.
-class MoscowAppTestCase(SimpleTestCase):
-    databases = "__all__"
-    datetime_moscow = datetime.now(timezone_moscow)
+class HomeTest(TestCase):
 
-    @freeze_time(datetime_moscow)
-    def test_moscow_time_correct(self):
-        """The displayed moscow time is correct"""
+    @mock.patch('pages.views.datetime')
+    def test_returned_correct_time(_, mocked_datetime):
+        mocked_datetime.now.return_value = datetime(2022, 1, 1)
+        c = Client()
+        response = c.get('/')
+        assert response.content == b"2022-01-01 00:00:00"
 
-        self.assertEqual(datetime.now(timezone(timedelta(hours=3))), datetime.now(timezone_moscow))
+    def test_changed_time(_):
+        c = Client()
+        first_response = c.get('/')
+        second_response = c.get('/')
+        assert first_response != second_response
