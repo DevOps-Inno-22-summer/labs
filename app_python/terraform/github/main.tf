@@ -2,12 +2,12 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "4.0"
+      version = ">= 4.0"
     }
   }
 }
-provider "github" {
 
+provider "github" {
 }
 
 resource "github_repository" "devops" {
@@ -30,7 +30,7 @@ resource "github_branch_default" "default"{
 }
 
 resource "github_branch_protection_v3" "protection" {
-  repository     = github_repository.lab4.name
+  repository     = github_repository.devops.name
   branch         = "lab4"
 
   restrictions {
