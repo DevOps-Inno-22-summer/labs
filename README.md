@@ -9,3 +9,20 @@ For more details on the Python project, visit the [app_python](app_python) folde
 A markdown linter is used for this repository, which is the VS Code extension [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 Dockerfiles are linted by the [Docker VS Code extension](https://code.visualstudio.com/docs/containers/overview).
+
+## Vagrant
+
+To provision the virtual machines, run `vagrant up`.
+
+To destroy the virtual machines, run `vagrant destroy`.
+
+## Terraform
+
+Secret tokens such as the GitHub access token are saved in the `secret.tfvars` file.
+This file is ignored by git.
+
+To plan the terraform changes, run `terraform plan -var-file="secret.tfvars"`.
+
+To apply the changes, run `terraform apply -var-file="secret.tfvars"`.
+
+Bonus: the terraform configurations include setting up teams.
