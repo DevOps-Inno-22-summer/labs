@@ -27,7 +27,7 @@ docker-compose up -d --build
 
 ## Run built image from Dockerhub
 ```
-docker run -p 8080:8080 codeomatic/telltime:v0.0.1
+docker run -p 8080:8080 codeomatic/telltime:v0.0.4
 ```
 
 ## Access using browser
