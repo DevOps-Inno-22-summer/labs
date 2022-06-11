@@ -1,0 +1,3 @@
+venv
+.pytest*
+terraform/github/*terraform*
