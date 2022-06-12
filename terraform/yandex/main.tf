@@ -14,13 +14,6 @@ provider "yandex" {
   zone      = "ru-central1-a"
 }
 
-# provider "yandex" {
-#   token     = "AQAAAAA3oFrcAATuwUYZDtskgEVyt9PE2rYHfpo"
-#   cloud_id  = "b1gnqr5ta6mn3ugrbvk3"
-#   folder_id = "b1gfhsslotg20fdvni58"
-#   zone      = "ru-central1-a"
-# }
-
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 
@@ -31,7 +24,7 @@ resource "yandex_compute_instance" "vm-1" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8dqiigupbmq398h0va"
+      image_id = "fd8fte6bebi857ortlja"
     }
   }
 
@@ -55,7 +48,7 @@ resource "yandex_compute_instance" "vm-2" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd8dqiigupbmq398h0va"
+      image_id = "fd8fte6bebi857ortlja"
     }
   }
 
