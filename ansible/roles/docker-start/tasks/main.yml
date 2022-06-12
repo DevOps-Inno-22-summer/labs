@@ -1,0 +1,41 @@
+---
+- name: Install pip
+  apt:
+    update_cache: yes
+    name: python3-pip
+
+- name: Install aptitude using apt
+  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+- name: Install required system packages
+  apt: name={{ item }} state=latest update_cache=yes
+  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: Update apt and install docker-ce
+  apt: update_cache=yes name=docker-ce state=latest
+
+- name: Install docker-py
+  pip: name=docker-py
+
+- name: Enable Docker services
+  service:
+    name: "docker"
+    state: started
+    enabled: yes
+
+- name: Check if container is running
+  shell: docker ps
+
+- name: Run docker image
+  shell: docker run -p 5000:5000 ilyanokhrin/app-python:latest < /dev/null 2>&1 | logger -p local2.notice -i
+  # Feeds docker run with /dev/null output if it requires any input so the run doesn't hang
