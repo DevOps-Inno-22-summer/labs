@@ -24,8 +24,23 @@
 
 ### Lab 5
 
+1. Terraform build completed + cloud
+
 ![Terraform build completed](../images/terraform_complete.png)
 ![Cloud - network list](../images/cloud_networks.png)
 ![Cloud - network details](../images/cloud_network_overview.png)
+
+2. Ansible docker installation playbook run
+
 ![Ansible install playbook part 1](../images/ansible_install_part1.png)
 ![Ansible install playbook part 2](../images/ansible_install_part2.png)
+
+3. Terraform destroy
+
+![Terraform destroy](../images/terraform_destroy.png)
+
+### Lab 6
+
+1. Ansible docker start playbook run
+
+![Ansible start playbook](../images/ansible_start.png)
