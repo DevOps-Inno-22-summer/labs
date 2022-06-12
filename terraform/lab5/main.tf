@@ -56,17 +56,17 @@ output "external_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 
-variable "ya_cloud_token" {
+variable "yandex_cloud_token" {
     type        = string
     description = "Access token"
 }
 
-variable "ya_cloud_id" {
+variable "yandex_cloud_id" {
     type        = string
     description = "Cloud ID"
 }
 
-variable "ya_cloud_folder_id" {
+variable "yandex_cloud_folder_id" {
     type        = string
     description = "Folder ID "
 }
