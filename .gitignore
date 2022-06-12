@@ -3,3 +3,10 @@ venv/
 .vscode/
 .idea/
 __pycache__/
+
+#terraform
+*.tfvars
+*.tfstate*
+.terraform*
+.terraform/
+terraform_plan
