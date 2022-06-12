@@ -1,4 +1,27 @@
-## Best practices for Terraform
+# LAB 5-6
+
+## Best practices for Terraform-YandexCloud
+
+- Store access tokens and secrets as environment variables
+- Create user and add ssh key
+- Output variable to know the IP address
+
+## Screenshots
+
+1. Create YaCloud VM console log
+![YaCloudLog](https://github.com/AlxGration/devopslabs/blob/master/terraform/ya_cloud/ya_cloud_console.jpg)
+
+1. YaCloud VM
+![YaCloudVm](https://github.com/AlxGration/devopslabs/blob/master/terraform/ya_cloud/ya_cloud_vm.jpg)
+
+## Guides used to do lab 5-6
+
+- https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart
+- https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+# LAB 3-4
+
+## Best practices for Terraform-Github
 
 - Dont't change terraform state file (.tfstate) manually, do this using "apply" command
 - Set up a shared remote storage
@@ -6,16 +29,15 @@
 - Use 1 state file per Environment (test, dev, prod)
 - Use CI for terraform code
 
-
 ## Screenshots
 
 1. 3 VMs from VirtualBox
-![Virtualbox](https://github.com/AlxGration/devopslabs/blob/master/terraform/screen_machines.PNG)
+![Virtualbox](https://github.com/AlxGration/devopslabs/blob/master/terraform/virtualbox/screen_machines.PNG)
 
 2. Workspace with GitHub repo in Terraform Cloud
-![Terraform](https://github.com/AlxGration/devopslabs/blob/master/terraform/repository.PNG)
+![Terraform](https://github.com/AlxGration/devopslabs/blob/master/terraform/virtualbox/repository.PNG)
 
-## Commands to run terraform
+## Commands to run terraform (lab4)
 
 ```
 terraform init
