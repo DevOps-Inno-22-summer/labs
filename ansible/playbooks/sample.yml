@@ -1,0 +1,12 @@
+- name: Install docker and docker-compose
+  hosts: defailt
+  become: yes
+
+  vars:
+    pip_install_packages:
+      - name: docker
+      - name: docker-compose
+  
+  roles:
+    - ../roles/docker
+    
