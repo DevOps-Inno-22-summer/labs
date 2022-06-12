@@ -1,13 +1,15 @@
 terraform {
   required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
+    yandex = {
+      source = "yandex-cloud/yandex"
     }
   }
+  required_version = ">= 0.13"
 }
 
-# Configure the GitHub Provider
-provider "github" {
-    token = var.token
+provider "yandex" {
+  token     = var.yandex_token
+  cloud_id  = var.yandex_cloud_id
+  folder_id = var.yandex_folder_id
+  zone      = "ru-central1-b"
 }
