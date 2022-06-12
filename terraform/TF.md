@@ -19,6 +19,7 @@
 - https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart
 - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 - https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-18-04#playbook-yml
+- https://docs.ansible.com/ansible/2.5/modules/docker_container_module.html#examples
 
 # LAB 3-4
 

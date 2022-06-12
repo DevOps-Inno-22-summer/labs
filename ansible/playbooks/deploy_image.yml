@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - docker_install
+    - role: docker_image_deploy
+      vars:
+        image: "alxgration/devops-docker"
+        ports: 
+        - "5000:5000"
