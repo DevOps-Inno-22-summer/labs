@@ -1,6 +1,6 @@
 # Configure GCP project
 provider "google" {
-  project = "codeomatic-org"
+  project = var.google_cloud_project
 }
 
 resource "google_cloud_run_service" "telltime" {
