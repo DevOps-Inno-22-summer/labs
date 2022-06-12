@@ -17,3 +17,6 @@ Here are the screenshots from ansible run
 
 # Deployment
 ![Deployment screenshot](screenshots/4.jpg)
+
+# Running example from browser
+![Application running screenshot](screenshots/5.jpg)
