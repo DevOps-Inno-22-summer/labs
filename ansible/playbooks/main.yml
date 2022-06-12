@@ -1,7 +1,0 @@
----
-- hosts: default
-  gather_facts: yes
-  become: true
-  roles:
-    - ../roles/docker
-    
