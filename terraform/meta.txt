@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: ananas
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC1fX7anzE7XCSFB4+yygAG1wdcdHWLdFwBpy9+mPk9EfKSRPNlwaLSw7Ij1C/7bu6sd1MXwK/Ey+iSP1wi+Lw5dDcduJECLdGvoff4Tdyz0CCfn+40p7vWm95019l/6hsFxn3k7J8SCTaU+W1Q4Xtg0ObUJmXcofBCFHfaDiKuJGzaVReQJd1wC6BFdaVcdXME8APQBdCJ0dZeikfDchPVc9Uv9NEmqMlDE4KwuJO7zWQlBtN2DE8nn83hkf1epUNUQPbloerUKYdv+B4Rx5J1GLyS8ZF6hcXUDK8e97ylmbbCoJCJRHzZhmeN2ITE7EqOy+d3nKU6OuJHaGtUcX0famIGPvd34kAWANsRFZL/d76BQQmW1J34a5QOoMXy1NU572Bp/b/uxgfG6R/Hj3238FBhqLeOglhp6Z+6Ej3mhZjZkn/RiClIq5IScMjeFHqDmTEDfdsqI/Sz8DeZpQLeecYHN6EeuJzY8Hm5H1rrFWryqf2wPksl4slaGa7IXrk= ananas@MacBook-Air-Anastasiia.local

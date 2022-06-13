@@ -1,4 +1,8 @@
 app_python/venv
 __pycache__/
+.DS_Store
 .idea
 .vagrant
+ansible/roles
+terraform/.terraform
+*secret*
