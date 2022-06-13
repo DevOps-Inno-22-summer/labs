@@ -2,3 +2,4 @@ venv
 .pytest*
 .terraform*
 *.tfstate*
+secret.tfvars
