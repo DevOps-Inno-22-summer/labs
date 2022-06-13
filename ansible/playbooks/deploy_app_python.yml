@@ -3,4 +3,5 @@
   
   roles:
     - role: geerlingguy.docker
+    - role: deploy.dockerimage
   
