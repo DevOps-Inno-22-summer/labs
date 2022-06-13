@@ -1,0 +1,11 @@
+- name: Deploy playbook
+  hosts: all
+  tasks:
+     - name: Pull image
+       command: docker pull ananasness/iu-devops-labs:laba2
+
+     - name: Run container
+       command: docker run -p "8000:8000" -d ananasness/iu-devops-labs:laba2 uwsgi --http :8000 --module django_project.wsgi
+
+  roles:
+    - geerlingguy.docker
