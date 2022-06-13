@@ -3,8 +3,4 @@
   remote_user: ubuntu
   any_errors_fatal: true
   roles:
-    - dockerog
-    - pipog
-  vars:
-    pip_install_packages:
-      - name: docker
+    - fastapi_deploy

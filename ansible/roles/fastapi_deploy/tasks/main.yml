@@ -1,0 +1,8 @@
+- name: Deploy to yandex cloud
+  docker_container:
+    image: raminafandi/time-python:time-python
+    name: time-python
+    auto_remove: true
+    state: started
+    ports:
+      - "5000:5000"
