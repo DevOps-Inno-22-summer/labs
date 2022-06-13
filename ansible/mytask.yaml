@@ -1,0 +1,5 @@
+---
+- name: My playbook
+  hosts: devops
+  roles:
+    - geerlingguy.docker

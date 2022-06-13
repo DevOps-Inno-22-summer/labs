@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDUdLl3GgK/68rmFS+Uvr8Cs4+EjpEGDvWAopyxx6FNXs+yn34ePCRt+G8mDecfo1cGP+YKGcAk2z8WXQwSb37MtRCFUx/3b59qFpWUNrsq2fYton27Udrn7c63/T9HuhBHG8vtWPiL7R7kMaX8thHdygs1DbuW4fRJf28Vhi6LfwedDnxzppxGwiMXjaPJij4Y9GyTZYhfaCyMU+IDdEwo//3y/w1ldb3S5iX0vW9D+Copx6x/KVr4lp9KJCUmGOws9txDIYhWhoWQFKq5TaUWpZ6Z+8si8GeUXqrDbF9YZ8c4pfuD+7iyMQY/RADAUQ6Z8P27IyXblq57/SkL7Yy/FtcUQPgAg4Y9jLcKzw5pLgIz4CJVPr4MJpDCN/y2ENbaOcMteon76prpiVUhidETEpGDinCSM0yjWdtGk1KkzEYV6OZ87OetS8zfG9cofLYnQh6EfuTqs3ER1BiN0ADQXAEgncV9TfsARv3UyDUizru9gxJYtPzUjI+YDawABtE= ravil@pop-os
