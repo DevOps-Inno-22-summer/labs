@@ -1,0 +1,11 @@
+---
+
+- name: Copy Docker-Compose
+  copy:
+    src: "{{ src }}"
+    dest: tmp/
+
+- name: Run Docker Compose
+  docker_compose:
+    project_src: tmp/
+    state: present
