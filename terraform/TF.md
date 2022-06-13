@@ -15,10 +15,26 @@
 13. Use for_each for iterated resources.
 14. Publish modules to a registry.
 
-# Virtualbox screenshot
+# Lab 4
 
-![VB](virtualbox.png)
+## Virtualbox screenshot
 
-# Terraform repository screenshot
+![VB](img/virtualbox.png)
 
-![TF](terraform.png)
+## Terraform repository screenshot
+
+![TF](img/terraform.png)
+
+# Lab 5
+
+## Run with ansible playbook
+
+![playbook](img/ansible-playbook.png)
+
+## Connect to machine with ssh
+
+![ssh](img/connect-ssh.png)
+
+## Runned machine on yandex cloud
+
+![yandex](img/yandex-run.png)
