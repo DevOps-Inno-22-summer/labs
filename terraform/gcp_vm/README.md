@@ -20,3 +20,5 @@ terraform destroy
 
 
 # References
+* Google terraform vm [tutorial](https://cloud.google.com/docs/terraform/get-started-with-terraform)
+* Official terraform [docs about gce](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/getting_started)
