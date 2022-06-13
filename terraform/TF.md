@@ -31,3 +31,9 @@
 ## Screenshot for Github
 
 ![rep_imported_successfully](./images/3.png)
+
+## Screenshot for Azure Virtual machine
+
+![Vms_Azure_localCMD](./images/Azure_virtual_machine_1.png)
+
+![Vms_Azure_online](./images/Azure_virtual_machine_2.png)
