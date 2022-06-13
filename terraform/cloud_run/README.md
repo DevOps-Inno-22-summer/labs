@@ -20,5 +20,5 @@ terraform destroy
 
 
 # References
-* It turns out you [can't pull Docker Hub](https://stackoverflow.com/questions/66316490/how-to-pull-docker-hub-image-to-google-cloud-run) image directly from GCP. I guess they don't like each other? For popular images from Docker Hub [Google suggests](https://cloud.google.com/container-registry/docs/overview#pull-through_cache) to use their cache.
+* It turns out you [can't pull Docker Hub](https://stackoverflow.com/questions/66316490/how-to-pull-docker-hub-image-to-google-cloud-run) image directly from GCP. I guess they don't like each other? For popular images from Docker Hub [Google suggests](https://cloud.google.com/container-registry/docs/overview#pull-through_cache) using their cache.
 * [Google cloud run doc ref](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_service)
