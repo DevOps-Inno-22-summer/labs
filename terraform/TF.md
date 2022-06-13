@@ -16,15 +16,13 @@ References:
 2. https://hashicorp-terraform.awsworkshop.io/040_terraform_cloud_setup/3-cloud-workspace-create.html
 3. https://enlear.academy/automate-infrastructure-as-code-with-terraform-cloud-github-7651f345466a
 
-https://github.com/NastyRu/DevOps_labs/blob/lab5/terraform/console.png
-
 ## Yandex Cloud VM
 
 1. Screenshot of success run
 ```sh
 ansible-playbook playbook/main.yml
 ```
-![console](https://github.com/NastyRu/DevOps_labs/blob/lab5/terraform/console.png)
+![console](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/console.png)
 
 2. Screenshot of VM in Yandex cloud
-![yandex](https://github.com/NastyRu/DevOps_labs/blob/lab5/terraform/yandex.png)
+![yandex](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/yandex.png)
