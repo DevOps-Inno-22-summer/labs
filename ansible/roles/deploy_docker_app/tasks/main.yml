@@ -1,0 +1,9 @@
+---
+- name: Docker pull image
+  docker_container:
+    name: devops_course
+    state: started
+    image: "nyahonk/devops_course:latest"
+    pull: true
+    ports:
+      - "8000:8080"

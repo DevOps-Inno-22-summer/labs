@@ -1,0 +1,7 @@
+---
+- hosts: 84.201.140.105
+  roles:
+    - role: geerlingguy.docker
+      become: true
+    - role: deploy_docker_app
+      become: true
