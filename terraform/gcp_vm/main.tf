@@ -62,3 +62,12 @@ resource "google_compute_firewall" "app_traffic" {
   }
   source_ranges = ["0.0.0.0/0"]
 }
+
+
+// A variable for extracting the external IP address of the VM
+output "Web-server-URL" {
+    value = join(
+        "",
+        ["http://", google_compute_instance.terraform_network.network_interface.0.access_config.0.nat_ip, ":8080"]
+    )
+}
