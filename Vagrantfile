@@ -7,15 +7,15 @@
 # you're doing.
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "ubuntu/focal64"
+  config.vm.box = "ubuntu20"
 
    config.vm.provider "virtualbox" do |vb|
        vb.memory = "1024"
   end
 
-#   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 8000, host: 8080
   # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-  config.vm.network "private_network", ip: "192.168.56.100"
+  # config.vm.network "private_network", ip: "192.168.56.100"
   # config.vm.network "public_network"
   config.vm.synced_folder "./data", "/vagrant_data", :nfs => { :mount_options => ["dmode=777", "fmode=666"] }
 
