@@ -1,0 +1,4 @@
+plugin: gcp_compute
+projects:
+  - codeomatic-org
+auth_kind: serviceaccount
