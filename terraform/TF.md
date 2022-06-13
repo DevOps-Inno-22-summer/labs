@@ -22,7 +22,7 @@ References:
 ```sh
 ansible-playbook playbook/main.yml
 ```
-![console](https://github.com/NastyRu/DevOps_labs/blob/lab5/terraform/console.png)
+![console](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/console.png)
 
 2. Screenshot of VM in Yandex cloud
-![yandex](https://github.com/NastyRu/DevOps_labs/blob/lab5/terraform/yandex.png)
+![yandex](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/yandex.png)
