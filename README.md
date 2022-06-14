@@ -26,3 +26,13 @@ To plan the terraform changes, run `terraform plan -var-file="secret.tfvars"`.
 To apply the changes, run `terraform apply -var-file="secret.tfvars"`.
 
 Bonus: the terraform configurations include setting up teams.
+
+## Bonuses
+
+### Lab 5
+
+Used GCP dynamic inventory.
+
+### Lab 6
+
+Playbooks for deploying both apps (Python and Flutter) reuse the same role (via parameters).
