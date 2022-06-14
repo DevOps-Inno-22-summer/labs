@@ -1,0 +1,5 @@
+plugin: gcp_compute
+projects:
+  - inno-devops-labs-2
+auth_kind: serviceaccount
+service_account_file: ./inventory/service_account.json

@@ -1,0 +1,7 @@
+# https://github.com/geerlingguy/ansible-role-docker
+# https://galaxy.ansible.com/geerlingguy/docker
+
+- hosts: all
+  become: yes # to have root access to install dependencies
+  roles:
+    - geerlingguy.docker
