@@ -1,0 +1,4 @@
+---
+# tasks file for deploy_app
+- name: Run Docker app image
+  shell: sudo docker run -d -p {{in_port}}:{{out_port}} --name {{container_name}} {{image}}
