@@ -43,3 +43,9 @@ Source: [Terraform Best Practices Repository](https://github.com/ozbillwang/terr
 ### BONUS: Organization teams with members invitations (by Terraform Config)
 
 ![Team members](../screenshots/terraform/safinsaf-team.png)
+
+## Lab 5 Screenshots
+
+![Terraform Plan GCP](../screenshots/lab5/terraform-gcp-plan.png)
+
+![GCP Console VM Instance](../screenshots/lab5/gcp-vm-instance.png)
