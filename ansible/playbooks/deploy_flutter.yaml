@@ -1,0 +1,9 @@
+- hosts: all
+
+  roles:
+    - role: "../roles/deploy_app"
+  vars:
+    image: 'elbatanony/devops-flutter:latest'
+    container_name: 'devops-flutter'
+    in_port: 8000
+    out_port: 80
