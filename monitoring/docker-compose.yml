@@ -1,0 +1,58 @@
+version: "3.9" 
+
+networks:
+    logs:
+
+services:
+    web:
+        image: alxgration/devopslabs:${APP_VERSION}
+        container_name: monitoring-app
+        networks:
+            - logs
+        ports:
+            - "5000:5000"
+        mem_limit: "256m"
+        logging:
+            driver: "json-file"
+            options:
+              tag: "{{ .ImageName }}|{{ .Name }}"
+
+    loki:
+        image: grafana/loki:${LOKI_VERSION}
+        container_name: monitoring-loki
+        command: -config.file=/etc/loki/local-config.yaml
+        networks:
+            - logs
+        ports:
+            - "3100:3100"
+        mem_limit: "256m"
+        logging:
+            options:
+                tag: "{{.ImageName}}|{{.Name}}"
+
+    promtail:
+        image: grafana/promtail:${PROMTAIL_VERSION}
+        command: -config.file=/etc/promtail/config.yml
+        container_name: monitoring-promtail
+        networks:
+            - logs
+        volumes:
+            - /var/log:/var/log
+            - /var/lib/docker/containers/:/var/lib/docker/containers
+            - ./promtail.yml:/etc/promtail/config.yml
+        mem_limit: "256m"
+        logging:
+            options:
+                tag: "{{.ImageName}}|{{.Name}}"
+
+    grafana:
+        image: grafana/grafana:${GRAFNA_VERSION}
+        container_name: monitoring-grafana
+        networks:
+            - logs
+        ports:
+            - "3000:3000"
+        mem_limit: "256m"
+        logging:
+            options:
+                tag: "{{.ImageName}}|{{.Name}}"

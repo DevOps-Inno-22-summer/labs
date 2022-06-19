@@ -11,10 +11,10 @@
     name: "docker"
     state: present
 
-- name: Run a container
+- name: Run Docker container
   become: true
   docker_container:
     name: app_python
-    image: "{{ image }}"
+    image: 'alxgration/devopslabs'
     state: started
-    ports: "{{ ports }}"
+    ports: '5000:5000'
