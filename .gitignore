@@ -3,5 +3,5 @@ venv
 .terraform*
 *.tfstate*
 *.tfvars*
-.DS_STORE
+# .DS_Store
 secret.tfvars
