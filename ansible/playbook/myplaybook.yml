@@ -1,6 +1,8 @@
 ---
-- hosts: 84.201.140.105
+- hosts: 51.250.111.191
   roles:
+    - role: geerlingguy.pip
+      become: true
     - role: geerlingguy.docker
       become: true
     - role: deploy_docker_app

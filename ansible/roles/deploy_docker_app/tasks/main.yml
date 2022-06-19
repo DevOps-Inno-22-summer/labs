@@ -5,5 +5,7 @@
     state: started
     image: "nyahonk/devops_course:latest"
     pull: true
+    expose:
+      - 8000
     ports:
-      - "8000:8080"
+      - "0.0.0.0:8000:8000"
