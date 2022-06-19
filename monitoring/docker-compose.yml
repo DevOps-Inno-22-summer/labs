@@ -15,6 +15,7 @@ services:
       options:
         max-size: "100m"
         tag: "{{.ImageName}}"
+    mem_limit: 300m
 
   loki:
     image: "grafana/loki"
@@ -23,6 +24,11 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    mem_limit: 500m
 
   promtail:
     image: "grafana/promtail"
@@ -32,6 +38,11 @@ services:
     command: -config.file=/etc/promtail/promtail.yml
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    mem_limit: 500m
 
   prometheus:
     image: "prom/prometheus"
@@ -42,6 +53,11 @@ services:
     command: --config.file=/etc/prometheus/prometheus.yml
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    mem_limit: 500m
 
   grafana:
     image: "grafana/grafana"
@@ -49,3 +65,8 @@ services:
       - "3000:3000"
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    mem_limit: 500m
