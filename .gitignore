@@ -4,3 +4,4 @@ venv
 *.tfstate*
 *.tfvars*
 .DS_STORE
+secret.tfvars

@@ -25,4 +25,4 @@ https://hub.docker.com/repository/docker/simonwt/moscow-time-fastapi
 Default port 8001
 
 `docker pull simonwt/moscow-time-fastapi`
-`docker run -p 8001:8001 -d -t simonwt/moscow-time-fastapi`gi
+`docker run -p 8001:8001 -d -t simonwt/moscow-time-fastapi`
