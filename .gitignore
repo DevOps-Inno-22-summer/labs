@@ -2,3 +2,5 @@ venv
 .pytest*
 .terraform*
 *.tfstate*
+*.tfvars*
+.DS_STORE
