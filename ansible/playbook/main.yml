@@ -4,4 +4,5 @@
     - role: install_docker_compose
     - role: deploy_app_python
       vars:
-        src: ../../docker-compose.yml
+        docker_compose_src: ../../monitoring/docker-compose.yml
+        promtail_src:       ../../monitoring/promtail.yml

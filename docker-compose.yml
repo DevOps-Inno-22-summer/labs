@@ -1,7 +1,0 @@
-version: "3"
-
-services:
-  app_python:
-    image: "danilag/app-python"
-    ports:
-      - "6124:5000"

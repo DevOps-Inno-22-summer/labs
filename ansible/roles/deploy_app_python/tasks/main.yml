@@ -2,7 +2,10 @@
 
 - name: Copy Docker-Compose
   copy:
-    src: "{{ src }}"
+    src: "{{ docker_compose_src }}"
+    dest: tmp/
+  copy:
+    src: "{{ promtail_src }}"
     dest: tmp/
 
 - name: Run Docker Compose
