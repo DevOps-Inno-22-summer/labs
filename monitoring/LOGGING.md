@@ -10,3 +10,6 @@
 - Use comments
 - Based on a gold working solutions (like `https://github.com/black-rosary/loki-nginx`), but be smart
 - KISS principle
+- Time ordering of logs
+- Set versions of images
+- Clear naming for dashboards
