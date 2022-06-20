@@ -1,4 +1,4 @@
-# Best parctices for Docker
+# Best practices for Docker
 
 ## Docker
 
