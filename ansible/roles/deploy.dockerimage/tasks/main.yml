@@ -1,0 +1,28 @@
+---
+# tasks file for deploy.dockerimage
+
+- name: pull the image
+  command: docker pull raghadsy/repo_2
+
+- name: run the container
+  command: docker run -d -p 8000:8000 --name con2 raghadsy/repo_2
+
+# - name: pull an image
+#   docker_image:
+#     name: raghadsy/repo_2
+#     source: pull
+
+# - name: build the image
+#   docker_image:
+#     path: /root/docker
+#     name: moscowtime 
+
+# - name: Create container
+#   docker_container:
+#     name: web
+#     image: moscowtime
+#     state: started
+#     ports: 
+#     - 8000:8000
+#     tty: tru
+#     detach: true 
