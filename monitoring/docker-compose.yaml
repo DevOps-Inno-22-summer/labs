@@ -17,7 +17,13 @@ services:
     volumes: 
       - app-vol:/home/app/data
     ports:
-      - "8000:8000"      
+      - "8000:8000"   
+    logging:
+        driver: "json-file"
+        options:
+          max-file: 5
+          max-size: "50m"
+    mem_limit: 300m     
 
   loki:
     image: grafana/loki:2.5.0
@@ -26,7 +32,13 @@ services:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
-      - grafana-vol:/var/lib/grafana
+      - grafana-vol:/var/lib/grafana 
+    logging:
+        driver: "json-file"
+        options:
+          max-file: 5
+          max-size: "50m"
+    mem_limit: 700m  
 
   promtail:
     image: grafana/promtail:2.5.0
@@ -37,7 +49,13 @@ services:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./promtail.yml:/etc/promtail/promtail.yml:ro
       - promtail-vol:/var/lib/promtail/positions
-    command: -config.file=/etc/promtail/promtail.yml
+    command: -config.file=/etc/promtail/promtail.yml 
+    logging:
+        driver: "json-file"
+        options:
+          max-file: 5
+          max-size: "50m"
+    mem_limit: 700m  
 
   grafana:
     image: grafana/grafana:8.5.1
@@ -46,6 +64,12 @@ services:
       - "3000:3000"
     volumes:
       - loki-vol:/tmp/loki/
+    logging:
+        driver: "json-file"
+        options:
+          max-file: 5
+          max-size: "50m"    
+    mem_limit: 700m  
 
   prometheus:
     image: prom/prometheus:v2.18.1
@@ -55,5 +79,11 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prometheus-vol:/prometheus
-    command: --config.file=/etc/prometheus/prometheus.yml
+    command: --config.file=/etc/prometheus/prometheus.yml    
+    logging:
+        driver: "json-file"
+        options:
+          max-file: 5
+          max-size: "50m"
+    mem_limit: 700m  
 
