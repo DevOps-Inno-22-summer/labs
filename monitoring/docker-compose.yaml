@@ -9,6 +9,7 @@ services:
        - '5000:5000'
     networks:
       - monitoring-net
+    mem_limit: '256m'
     logging:
       driver: 'json-file'
       options:
@@ -24,6 +25,7 @@ services:
       - '3000:3000'
     networks:
       - monitoring-net
+    mem_limit: '256m'
     logging:
       driver: 'json-file'
       options:
@@ -46,6 +48,7 @@ services:
       - '-config.file=/etc/promtail/promtail.yaml'
     networks:
       - monitoring-net
+    mem_limit: '256m'
     logging:
       driver: 'json-file'
       options:
@@ -64,6 +67,27 @@ services:
       - '-config.file=/etc/loki/local-config.yaml'
     networks:
       - monitoring-net
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '3'
+        tag: '{{.ImageName}}'
+
+
+  prometheus:
+    image: prom/prometheus:v2.36.1
+    container_name: monitoring-prometheus
+    ports:
+      - '9090:9090'
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    networks:
+      - monitoring-net
+    mem_limit: '256m'
     logging:
       driver: 'json-file'
       options:
