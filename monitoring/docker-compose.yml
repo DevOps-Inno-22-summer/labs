@@ -1,0 +1,41 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  app_python:
+    image: "ilyanokhrin/app-python"
+    ports:
+      - "5000:5000"
+    networks:
+      - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        tag: "{{.ImageName}}"
+
+  loki:
+    image: "grafana/loki"
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+
+  promtail:
+    image: "grafana/promtail"
+    volumes:
+      - /var/lib/docker/containers/:/var/lib/docker/containers
+      - ./promtail.yml:/etc/promtail/promtail.yml
+    command: -config.file=/etc/promtail/promtail.yml
+    networks:
+      - loki
+
+  grafana:
+    image: "grafana/grafana"
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
