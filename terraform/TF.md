@@ -15,3 +15,14 @@ References:
 1. https://medium.com/clarusway/running-flask-web-server-on-virtualbox-using-ansible-and-vagrant-d2b92c6d4075
 2. https://hashicorp-terraform.awsworkshop.io/040_terraform_cloud_setup/3-cloud-workspace-create.html
 3. https://enlear.academy/automate-infrastructure-as-code-with-terraform-cloud-github-7651f345466a
+
+## Yandex Cloud VM
+
+1. Screenshot of success run
+```sh
+ansible-playbook playbook/main.yml
+```
+![console](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/console.png)
+
+2. Screenshot of VM in Yandex cloud
+![yandex](https://github.com/NastyRu/DevOps_labs/blob/master/terraform/yandex.png)
