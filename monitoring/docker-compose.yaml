@@ -1,0 +1,59 @@
+version: '3.8'
+
+networks:
+  logging:
+
+volumes:
+  grafana-vol:
+  loki-vol:
+  promtail-vol:
+  prometheus-vol:
+  app-vol:
+
+services:
+  app:
+    image: rungiantboom/devopslab:latest
+    container_name: monitoring-app
+    volumes: 
+      - app-vol:/home/app/data
+    ports:
+      - "8000:8000"      
+
+  loki:
+    image: grafana/loki:2.5.0
+    container_name: monitoring-loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - grafana-vol:/var/lib/grafana
+
+  promtail:
+    image: grafana/promtail:2.5.0
+    container_name: monitoring-promtail
+    ports:
+      - "9080:9080"
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./promtail.yml:/etc/promtail/promtail.yml:ro
+      - promtail-vol:/var/lib/promtail/positions
+    command: -config.file=/etc/promtail/promtail.yml
+
+  grafana:
+    image: grafana/grafana:8.5.1
+    container_name: monitoring-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - loki-vol:/tmp/loki/
+
+  prometheus:
+    image: prom/prometheus:v2.18.1
+    container_name: monitoring-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-vol:/prometheus
+    command: --config.file=/etc/prometheus/prometheus.yml
+
