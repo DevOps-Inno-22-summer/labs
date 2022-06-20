@@ -12,7 +12,7 @@ docker-compose up
 ``` 
 5. go to *localhost:3000* and login with admin-admin
 6. add data sourse Loki with http://loki:3100
-7. check metrics
+7. capture logs
 
 ### Screenshots
 

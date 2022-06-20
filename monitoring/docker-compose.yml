@@ -15,7 +15,9 @@ services:
         logging:
             driver: "json-file"
             options:
-              tag: "{{ .ImageName }}|{{ .Name }}"
+                max-size: "100m"
+                max-file: "3"
+                tag: "{{ .ImageName }}|{{ .Name }}"
 
     loki:
         image: grafana/loki:${LOKI_VERSION}
@@ -28,6 +30,8 @@ services:
         mem_limit: "256m"
         logging:
             options:
+                max-size: "100m"
+                max-file: "3"
                 tag: "{{.ImageName}}|{{.Name}}"
 
     promtail:
@@ -43,6 +47,8 @@ services:
         mem_limit: "256m"
         logging:
             options:
+                max-size: "100m"
+                max-file: "3"
                 tag: "{{.ImageName}}|{{.Name}}"
 
     grafana:
@@ -55,4 +61,25 @@ services:
         mem_limit: "256m"
         logging:
             options:
+                max-size: "100m"
+                max-file: "3"
                 tag: "{{.ImageName}}|{{.Name}}"
+
+    prometheus:
+        image: prom/prometheus:${PROMETHEUS_VERSION}
+        container_name: monitoring-prometheus
+        ports:
+            - 9090:9090
+        command: --config.file=/etc/prometheus/prometheus.yml
+        volumes:
+            - ./prometheus.yml:/etc/prometheus/prometheus.yml
+        networks:
+            - logs
+        mem_limit: "256m"
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100m"
+                max-file: "3"
+                tag: "{{.ImageName}}|{{.Name}}"
+        
