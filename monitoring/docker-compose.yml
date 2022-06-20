@@ -16,7 +16,10 @@ services:
         max-size: "100m"
         max-file: "3"
         tag: "{{.ImageName}}"
-    mem_limit: 300m
+    deploy:
+      resources:
+        limits:
+          memory: 500M
 
   loki:
     image: "grafana/loki"
@@ -30,7 +33,10 @@ services:
       options:
         max-size: "100m"
         max-file: "3"
-    mem_limit: 500m
+    deploy:
+      resources:
+        limits:
+          memory: 500M
 
   promtail:
     image: "grafana/promtail"
@@ -45,7 +51,10 @@ services:
       options:
         max-size: "100m"
         max-file: "3"
-    mem_limit: 500m
+    deploy:
+      resources:
+        limits:
+          memory: 500M
 
   prometheus:
     image: "prom/prometheus"
@@ -61,7 +70,10 @@ services:
       options:
         max-size: "100m"
         max-file: "3"
-    mem_limit: 500m
+    deploy:
+      resources:
+        limits:
+          memory: 500M
 
   grafana:
     image: "grafana/grafana"
@@ -74,4 +86,7 @@ services:
       options:
         max-size: "100m"
         max-file: "3"
-    mem_limit: 500m
+    deploy:
+      resources:
+        limits:
+          memory: 500M
