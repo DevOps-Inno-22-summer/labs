@@ -1,0 +1,92 @@
+version: '3.7'
+
+services:
+  app_python:
+    image: heivory/devops-lab:latest
+    ports:
+       - "5000:5000"
+    networks:
+      - network
+    restart: unless-stopped
+    logging:
+        driver: "json-file"
+        options:
+          max-size: "100m"
+          max-file: "3"
+          tag: "{{.ImageName}}"
+    mem_limit: "256m"
+
+  grafana:
+    image: grafana/grafana:8.5.6
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    logging:
+        options:
+          max-size: "100m"
+          max-file: "3"
+          tag: "{{.ImageName}}"
+    mem_limit: "256m"
+    networks:
+      - network:    
+
+  prometheus:
+    image: prom/prometheus:2.36.1
+    container_name: prometheus
+    ports:
+        - 9090:9090
+    command: --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+        - logs
+    mem_limit: "256m"
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "100m"
+            max-file: "3"
+            tag: "{{.ImageName}}"
+        
+
+  promtail:
+    image: grafana/promtail:2.5.0
+    container_name: promtail
+    ports:
+      - "9080:9080"
+    volumes:
+      - /var/log:/var/log
+      - ./promtail.yml:/etc/promtail/promtail.yml
+    command:
+      - '-config.file=/etc/promtail/promtail.yml'
+    restart: unless-stopped
+    logging:
+        options:
+          max-size: "100m"
+          max-file: "3"
+          tag: "{{.ImageName}}|{{.Name}}"
+    mem_limit: "256m"
+    networks:
+      - network
+
+  loki:
+    container_name: loki
+    image: grafana/loki:2.5.0
+    ports:
+      - "3100:3100"
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    logging:
+        options:
+          max-size: "100m"
+          max-file: "3"
+          tag: "{{.ImageName}}|{{.Name}}"
+    mem_limit: "256m"
+    networks:
+      - network
+
+
+
+networks:
+  network:
