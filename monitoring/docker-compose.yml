@@ -9,6 +9,8 @@ services:
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ${PWD}/promtail.yml:/etc/loki/local-config.yaml
     networks:
       - loki
 
