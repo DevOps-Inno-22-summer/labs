@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,3 +122,36 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        },
+    },
+    'handlers': {
+        # this is what you see in runserver console
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
+        # this handler logs to file
+        #▼▼▼▼ this is just a name so loggers can reference it
+        'file': {
+            'class': 'logging.FileHandler',
+            #  choose file location of your liking
+            'filename': os.path.normpath(os.path.join(BASE_DIR, '../../django.log')),
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        # django logger
+        'django': {
+            # log to console and file handlers
+            'handlers': ['console', 'file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),  # choose verbosity
+        },
+    },
+}
