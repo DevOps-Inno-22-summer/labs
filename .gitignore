@@ -5,3 +5,4 @@ __pycache__/
 .vagrant
 terraform/.terraform
 *secret*
+monitoring/.env
