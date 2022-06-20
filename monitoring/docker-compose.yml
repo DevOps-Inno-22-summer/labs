@@ -4,6 +4,26 @@ networks:
   loki:
 
 services:
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - '9090:9090'
+    restart: unless-stopped
+    volumes:
+      - '/home/raghad/labs/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
+    networks:
+      - loki
+    logging:
+      options:
+        max-size: "200k"
+        max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+
   loki:
     image: grafana/loki:2.4.0
     ports:
@@ -11,6 +31,15 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - loki
+    logging:
+      options:
+        max-size: "200k"
+        max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
 
   promtail:
     image: grafana/promtail:1.4.1
@@ -20,6 +49,15 @@ services:
     command: -config.file=/etc/promtail/docker-config.yml
     networks:
       - loki
+    logging:
+      options:
+        max-size: "200k"
+        max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
 
   grafana:
     image: grafana/grafana:master
@@ -27,7 +65,18 @@ services:
       - "3000:3000"
     networks:
       - loki
-  
+    depends_on:
+      - prometheus
+    logging:
+      options:
+        max-size: "200k"
+        max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+
   apppython:
     image: apppython
     container_name: python_app
@@ -42,4 +91,11 @@ services:
       driver: loki
       options:
         loki-url: http://localhost:3100/loki/api/v1/push
-        loki-external-labels: container_name=python_app
+        loki-external-labels: container_name=python_app,environment=development
+        max-size: "200k"
+        max-file: "10"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
