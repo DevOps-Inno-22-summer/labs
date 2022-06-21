@@ -19,11 +19,11 @@ Logs from Grafana explore dashboard
 
 Includes logs from all containers (including Python and Flutter apps)
 
-![Loki Logs Grafana](../../screenshots/lab7/loki-grafana.png)
+![Loki Logs Grafana](../screenshots/lab7/loki-grafana.png)
 
 Docker compose containers displayed in Docker Desktop
 
-![Docker Compose Containers](../../screenshots/lab7/docker-containers.png)
+![Docker Compose Containers](../screenshots/lab7/docker-containers.png)
 
 ## Bonus
 
