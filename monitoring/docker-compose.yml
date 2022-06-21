@@ -2,11 +2,23 @@
 # https://raw.githubusercontent.com/grafana/loki/v2.5.0/production/docker-compose.yaml
 # Added container name and volumes
 
+# Lab 8. Used extensions from https://github.com/compose-spec/compose-spec/blob/master/spec.md#using-extensions-as-fragments
+# Lab 8. Logging configuration from https://docs.docker.com/config/containers/logging/configure/
+
 version: '3.9'
 
 networks:
   loki:
 
+
+x-mem-limit: &mem-limit "150m"
+
+x-logging:
+  &logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
 
 services:
   app_python:
@@ -20,6 +32,8 @@ services:
       - /logs/:/var/log/
     networks:
       - loki
+    mem_limit: *mem-limit
+    logging: *logging
 
   app_flutter:
     container_name: lab7.app_flutter
@@ -32,6 +46,8 @@ services:
       - /logs/:/var/log/
     networks:
       - loki
+    mem_limit: *mem-limit
+    logging: *logging
 
   loki:
     container_name: lab7.loki
@@ -47,6 +63,8 @@ services:
     networks:
       - loki
     user: "0"
+    mem_limit: *mem-limit
+    logging: *logging
 
   promtail:
     container_name: lab7.promtail
@@ -59,6 +77,8 @@ services:
       - '-config.file=/etc/promtail/promtail-config.yml'
     networks:
       - loki
+    mem_limit: *mem-limit
+    logging: *logging
 
   grafana:
     image: grafana/grafana:${GRAFANA_VERSION}
@@ -71,6 +91,24 @@ services:
       - "3000:3000"
     networks:
       - loki
+    mem_limit: *mem-limit
+    logging: *logging
+
+  prometheus:
+    container_name: lab8.prometheus
+    image: prom/prometheus:${PROMETHEUS_VERSION}
+    expose:
+      - 9090
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus-config.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus-config.yml'
+    networks:
+      - loki
+    mem_limit: *mem-limit
+    logging: *logging
 
 volumes:
   loki-data: {}
