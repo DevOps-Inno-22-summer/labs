@@ -1,2 +1,3 @@
 *.tfvars
 out-terraform-vars
+monitoring/.data/minio/

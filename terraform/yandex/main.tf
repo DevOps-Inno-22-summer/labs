@@ -11,11 +11,11 @@ provider "yandex" {
   token     = var.y_token
   cloud_id  = var.y_cloud_id
   folder_id = var.y_folder_id
-  zone      = "ru-central1-a"
+  zone      = "ru-central1-b"
 }
 
 resource "yandex_compute_instance" "vm-1" {
-  name = "terraform1"
+  name = "terraform-mna"
 
   resources {
     cores  = 2
@@ -25,12 +25,12 @@ resource "yandex_compute_instance" "vm-1" {
   boot_disk {
     initialize_params {
       image_id = "fd8fte6bebi857ortlja"
-      size     = 7
+      size     = 4
     }
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
+    subnet_id = "e2l49seh77ovvv7ihivc"
     nat       = true
   }
 
@@ -39,33 +39,9 @@ resource "yandex_compute_instance" "vm-1" {
   }
 }
 
-resource "yandex_compute_instance" "vm-2" {
-  name = "terraform2"
-
-  resources {
-    cores  = 4
-    memory = 4
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd8fte6bebi857ortlja"
-      size     = 7
-    }
-  }
-
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat       = true
-  }
-
-  metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-  }
-}
 
 resource "yandex_vpc_network" "network-1" {
-  name = "network1"
+  name = "network-mna"
 }
 
 resource "yandex_vpc_subnet" "subnet-1" {
@@ -79,15 +55,6 @@ output "internal_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
-output "internal_ip_address_vm_2" {
-  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
-}
-
-
 output "external_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
-}
-
-output "external_ip_address_vm_2" {
-  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
