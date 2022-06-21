@@ -60,6 +60,29 @@ services:
     networks:
       - loki
 
+  prometheus:
+    container_name: monitoring.prometheus
+    image: "prom/prometheus:v2.18.1"
+    volumes:
+      - ${PWD}/prometheus.yml:/etc/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    restart: unless-stopped
+    expose:
+      - 9090
+    ports:
+      - "9090:9090"
+    networks:
+      - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "100m"
+
   minio:
     image: minio/minio
     entrypoint:
