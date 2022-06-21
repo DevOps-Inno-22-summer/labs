@@ -11,11 +11,23 @@ networks:
 services:
   app_python:
     container_name: lab7.app_python
-    image: elbatanony/devops-python:latest
+    image: elbatanony/devops-python:${PYTHON_APP_VERSION}
     expose:
       - 5000
     ports:
       - "5000:5000"
+    volumes:
+      - /logs/:/var/log/
+    networks:
+      - loki
+
+  app_flutter:
+    container_name: lab7.app_flutter
+    image: elbatanony/devops-flutter:${FLUTTER_APP_VERSION}
+    expose:
+      - 8080
+    ports:
+      - "8080:80"
     volumes:
       - /logs/:/var/log/
     networks:
