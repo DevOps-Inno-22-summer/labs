@@ -1,0 +1,66 @@
+# Docker compose template from official documentation
+# https://raw.githubusercontent.com/grafana/loki/v2.5.0/production/docker-compose.yaml
+# Added container name and volumes
+
+version: '3.9'
+
+networks:
+  loki:
+
+
+services:
+  app_python:
+    container_name: lab7.app_python
+    image: elbatanony/devops-python:latest
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - /logs/:/var/log/
+    networks:
+      - loki
+
+  loki:
+    container_name: lab7.loki
+    image: grafana/loki:${LOKI_VERSION}
+    expose:
+      - 3100
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yml:/etc/loki-config.yml
+      - loki-data:/tmp/loki/
+    command: -config.file=/etc/loki-config.yml
+    networks:
+      - loki
+    user: "0"
+
+  promtail:
+    container_name: lab7.promtail
+    image: grafana/promtail:${LOKI_VERSION}
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - promtail-data:/var/lib/promtail/positions
+      - ./promtail-config.yml:/etc/promtail/promtail-config.yml
+    command:
+      - '-config.file=/etc/promtail/promtail-config.yml'
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION}
+    container_name: lab7.grafana
+    volumes:
+      - grafana-data:/var/lib/grafana
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
+
+volumes:
+  loki-data: {}
+  promtail-data: {}
+  grafana-data: {}
