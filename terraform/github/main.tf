@@ -15,6 +15,10 @@ resource "github_branch_protection_v3" "labs" {
   branch         = "master"
   enforce_admins = true
 
+  restrictions {
+    users = ["raghadsalameh1"]
+  }
+
   required_status_checks {
     strict   = false
     contexts = ["ci/travis"]

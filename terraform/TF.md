@@ -31,3 +31,15 @@
 ## Screenshot for Github
 
 ![rep_imported_successfully](./images/3.png)
+
+## Screenshot for default branch and branch protection rules
+
+![default_branch_1](./images/b1.png)
+
+![default_branch_2](./images/b2.png)
+
+![default_branch_3](./images/b3.png)
+
+![default_branch_4](./images/b4.png)
+
+![default_branch_5](./images/b5.png)
