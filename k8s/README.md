@@ -1,23 +1,23 @@
 # LAB 9
 
-# Prerequsits. MacOS (AppleSilicon)
-'''
+# Prerequisites. MacOS (AppleSilicon)
+```
 brew install kubectl
 brew install minikube
 minikube start
-'''
+```
 
 ## Manual setting
 
 ### Deployment
-'''
+```
 => kubectl create deployment app-python --image=alxgration/devopslabs
 deployment.apps/app-python created
 
 => kubectl get deployments 
 NAME         READY   UP-TO-DATE   AVAILABLE   AGE
 app-python   1/1     1            1           5h23m
-'''
+```
 
 ### Service
 ```
