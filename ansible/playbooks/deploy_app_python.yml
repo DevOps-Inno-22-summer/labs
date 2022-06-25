@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  
+  roles:
+    - role: geerlingguy.docker
+    - role: deploy.dockerimage
+  
