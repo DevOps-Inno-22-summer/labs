@@ -37,6 +37,12 @@ spec:
             - name: http
               containerPort: {{.Values.containerPort}}
               protocol: TCP
+          env: 
+            - name: github
+              valueFrom:
+                secretKeyRef:
+                  name: github-token-secret
+                  key: token
           livenessProbe:
             httpGet:
               path: /
