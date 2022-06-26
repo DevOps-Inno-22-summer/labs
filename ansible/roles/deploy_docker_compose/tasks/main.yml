@@ -1,0 +1,13 @@
+---
+- name: copy Docker Compose files
+  copy:
+    src: /home/ravil/university/DevOpsLabs/docker-compose.yml
+    dest: ./docker-compose.yml
+  loop:
+    - docker-compose.yml
+
+# use files parameter to use multiple docker-compose.yml files
+- name: deploy Docker Compose stack
+  community.docker.docker_compose:
+    files:
+    - docker-compose.yml
