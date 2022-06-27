@@ -23,14 +23,19 @@ resource "github_repository" "devops-terraform" {
   visibility  = "public"
 }
 
+resource "github_branch" "master" {
+  repository = github_repository.devops-labs.name
+  branch     = "master"
+}
+
 resource "github_branch_default" "default" {
-  repository = github_repository.devops-terraform.name
-  branch     = "main"
+  repository = github_repository.devops-labs.name
+  branch     = "master"
 }
 
 resource "github_branch_protection_v3" "branch_protection" {
-  repository = github_repository.devops-terraform.name
-  branch     = "main"
+  repository = github_repository.devops-labs.name
+  branch     = "master"
 
   restrictions {
     users = ["ElBatanony"]
