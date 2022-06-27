@@ -11,6 +11,9 @@
 2. Screenshot the workspace with GitHub repository
 ![Terraform](https://github.com/NastyRu/DevOps_labs/blob/lab4/terraform/terraform.png)
 
+3. Github provider for Teraform
+![github](https://github.com/NastyRu/DevOps_labs/blob/lab4/terraform/github.png)
+
 References:
 1. https://medium.com/clarusway/running-flask-web-server-on-virtualbox-using-ansible-and-vagrant-d2b92c6d4075
 2. https://hashicorp-terraform.awsworkshop.io/040_terraform_cloud_setup/3-cloud-workspace-create.html
