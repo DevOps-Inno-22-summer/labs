@@ -80,3 +80,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secrets:
+   name: app-python-name-secret
+   username: app-python-user
