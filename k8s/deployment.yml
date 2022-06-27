@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: time-python-deployment
+
+  labels:
+    app: time-python
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: time-python
+
+  template:
+    metadata:
+      labels:
+        app: time-python
+
+    spec:
+      containers:
+        - name: time-python
+
+          image: raminafandi/time-python:time-python
+
+          ports:
+            - containerPort: 5000
