@@ -24,6 +24,14 @@ Source: [Terraform Best Practices Repository](https://github.com/ozbillwang/terr
 - Terraform version manager
   - You can manage multiple terraform versions with `tfenv`
 
+## Running `plan` and `apply`
+
+To use the Terraform commands without pasting the environment/secret variables everytime,
+
+add `github_token="secret_token"` to `secret.tfvars` file,
+
+and run `terraform plan -var-file="secret.tfvars"` or `terraform apply -var-file="secret.tfvars"`
+
 ## Screenshots
 
 [GitHub repo link](https://github.com/elbatanony-devops/devops-terraform)
