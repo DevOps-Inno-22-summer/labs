@@ -25,6 +25,10 @@
 
 ![TF](img/terraform.png)
 
+## Github repository created with protection rules
+
+![GH](img/github.png)
+
 # Lab 5
 
 ## Run with ansible playbook
