@@ -35,3 +35,17 @@
 ### Screenshot of work
 
 ![8](img/lab9/8.png)
+
+# Lab 10
+
+## Helm create
+
+![1](img/lab10/1.png)
+
+## Helm install
+
+![2](img/lab10/2.png)
+
+## Get pods, svc
+
+![3](img/lab10/3.png)
