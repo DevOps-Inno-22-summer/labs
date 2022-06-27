@@ -30,3 +30,5 @@ Based on the official [Google Cloud](https://cloud.google.com/docs/terraform/bes
 ![4](4.jpg)
 
 ![5](5.png)
+
+![6](6.png)
