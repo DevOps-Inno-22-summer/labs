@@ -17,9 +17,9 @@ provider "github" {
   owner = "elbatanony-devops"
 }
 
-resource "github_repository" "devops-terraform" {
-  name        = "devops-terraform"
-  description = "Solutions to DevOps labs"
+resource "github_repository" "devops-labs" {
+  name        = "devops-labs"
+  description = "Advanced DevOps course labs. Description updated via Terraform."
   visibility  = "public"
 }
 
