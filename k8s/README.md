@@ -1,3 +1,4 @@
+# Lab 9
 ```console
 > kubectl get pods,svc
 NAME                              READY   STATUS    RESTARTS   AGE
@@ -45,3 +46,17 @@ service/kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP       
 ```
 
 ![Lab9](../screenshots/lab-9.png)
+
+# Lab 10
+
+![Lab10](../screenshots/lab-10-minicube-dashboard.png)
+
+```console
+> kubectl get pods,svc
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/app-python-7c77b8bd49-7cqqt   1/1     Running   0          3m6s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+service/app-python   ClusterIP   10.109.167.168   <none>        80/TCP    3m6s
+service/kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP   4h49m
+```
