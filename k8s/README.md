@@ -7,4 +7,4 @@
 ![minikube service output](screenshots/2.jpg)
 
 ## Website on browser with ip address:
-![Applicaition in browser](screenshots/2.jpg)
+![Applicaition in browser](screenshots/3.jpg)
