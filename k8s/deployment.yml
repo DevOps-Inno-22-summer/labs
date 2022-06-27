@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: waitme-app-deployment
+  labels:
+    app: waitme-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: waitme-app
+  template:
+    metadata:
+      labels:
+        app: waitme-app
+    spec:
+      containers:
+        - name: waitme-app
+          image: rungiantboom/devopslab:latest
+          ports:
+            - containerPort: 5000
