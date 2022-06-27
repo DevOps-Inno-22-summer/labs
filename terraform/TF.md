@@ -19,3 +19,7 @@
 3. Snippet from Vagrant console output
 
 ![Snippet](../images/vagrant-console.png)
+
+4. Default branch and protection rules
+
+![Settings](../images/branch-settings.png)
