@@ -36,8 +36,8 @@ service/kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP       
 |-----------|------------|-------------|------------------------|
 | NAMESPACE |    NAME    | TARGET PORT |          URL           |
 |-----------|------------|-------------|------------------------|
-| default   | app-python |             | http://127.0.0.1:58672 |
-| default   | kubernetes |             | http://127.0.0.1:58678 |
+| default   | app-python |             | http://127.0.0.1:63272 |
+| default   | kubernetes |             | http://127.0.0.1:63278 |
 |-----------|------------|-------------|------------------------|
 🎉  Opening service default/app-python in default browser...
 🎉  Opening service default/kubernetes in default browser...
