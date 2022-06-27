@@ -19,3 +19,12 @@ spec:
           image: rungiantboom/devopslab:latest
           ports:
             - containerPort: 5000
+        
+      readinessProbe:
+        enabled: false
+        path: /ready 
+        initialDelaySeconds: 30 
+        failureThreshold: 60 
+        periodSeconds: 10 
+        timeoutSeconds: 15
+

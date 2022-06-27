@@ -1,6 +1,7 @@
 from flask import Flask
 from datetime import datetime
 import pytz
+from flask_healthz import healthz
 
 app = Flask(__name__)
 
