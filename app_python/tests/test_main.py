@@ -21,3 +21,13 @@ async def test_moscow_time():
     api_response = api_response[1].split(".")
     expected_response = expected_response[1].split(".")
     assert api_response[0] == expected_response[0]
+
+@pytest.mark.anyio
+async def test_visits_endpoint():
+    """ Test visits endpoint"""
+    # Arrange
+    # Act
+    async with AsyncClient(app=app, base_url="http://127.0.0.1:8000") as async_client:
+        response = await async_client.get("/visits")
+    # Assert
+    assert response.status_code == 200
