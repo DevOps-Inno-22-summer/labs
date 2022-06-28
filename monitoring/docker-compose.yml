@@ -3,9 +3,14 @@ version: "3"
 networks:
   loki:
 
+volumes:
+  app_data:
+
 services:
   app_python:
     image: "danilag/app-python"
+    volumes:
+      - app_data:/app-python/data
     ports:
       - "6124:5000"
     networks:
