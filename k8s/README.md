@@ -26,3 +26,11 @@ Definitions:
 - StatefulSet: gives an unchangeable unique id to each pod. Useful for persistant data (using storage volumes)
 - DaemonSet: makes sure that some or all nodes run a specific pod
 - PersistentVolumes: k8s api for handling storage as a resource in a cluster
+
+## Lab 10 Bonus
+
+Create helm chart for bonus Flutter app.
+
+Definitions:
+
+- Library Charts: reusing/sharing definitions/parameters between helm charts to avoid repitition
