@@ -9,3 +9,8 @@
 
 ![Outpout of Service All Console](../screenshots/lab9/service-all-console.png)
 ![Outpout of Service All Browser](../screenshots/lab9/service-all-browser.png)
+
+## helm
+
+![helm cmd get pods and svc](../screenshots/lab10/helm-cmd-get-pds-svc.png)
+![helm k8s dashboard](../screenshots/lab10/helm-k8s-dashboard.png)
