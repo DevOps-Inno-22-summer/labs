@@ -84,3 +84,9 @@ affinity: {}
 secrets:
    name: app-python-name-secret
    username: app-python-user
+
+podManagementPolicy: "Parallel"
+
+statefulSet:
+  name: visits
+  storageSize: 128M
