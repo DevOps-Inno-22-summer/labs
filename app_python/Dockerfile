@@ -20,6 +20,8 @@ COPY build /app
 
 # Creates a non-root user and adds permission to access the /app folder
 RUN adduser --disabled-password appuser
+RUN chown -R appuser:appuser /app
+RUN chmod 755 /app
 USER appuser
 
 # Healthcheack

@@ -93,6 +93,14 @@
          $docker container ls
         ```
 
+## About docker-compose
+
+To run your application with docker-compose and persistent storage run the command:
+
+```text
+   $docker-compose up
+```
+
 ## About Continous Integration
 
 For eash push or pull request on the bransh master and lab3 a pipeline with the following stages is run:
