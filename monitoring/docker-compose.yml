@@ -3,8 +3,10 @@ version: '3.7'
 services:
   app_python:
     image: nastyru/dev_ops_labs:latest
+    volumes:
+      - app_data:/app-python/data
     ports:
-       - "5001:5000"
+      - "5001:5000"
     networks:
       - network
     restart: unless-stopped
@@ -46,6 +48,9 @@ services:
     restart: unless-stopped
     networks:
       - network
+
+volumes:
+  app_data:
 
 networks:
   network:
