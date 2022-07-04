@@ -3,9 +3,14 @@ version: "3"
 networks:
   loki:
 
+volumes:
+  app-data:
+
 services:
   app_python:
     image: "ilyanokhrin/app-python"
+    volumes:
+      - app-data:/python-app/data
     ports:
       - "5000:5000"
     networks:

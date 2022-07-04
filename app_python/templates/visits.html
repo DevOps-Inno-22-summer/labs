@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Moscow Time</title>
+  </head>
+  <body style="background-color: rgb(30, 30, 30)">
+    <div align="center" style="padding-top: 20px">
+        <h1 style="color: white">Page visits</h1>
+        <ol style="font-size: 30px; color: white; display: table; margin: 0 auto">
+          {% for v in visits %}
+          <li>{{ v }}</li>
+          {% endfor %}
+        </ol>
+    </div>
+  </body>
+</html>
