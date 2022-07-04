@@ -3,9 +3,14 @@ version: "3.9"
 networks:
     logs:
 
+volumes:
+   app_data:
+
 services:
     web:
         image: alxgration/devopslabs:${APP_VERSION}
+        volumes:
+            - app_data:/app-python/data
         container_name: monitoring-app
         networks:
             - logs
