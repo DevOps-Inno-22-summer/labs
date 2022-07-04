@@ -9,6 +9,8 @@ services:
        - '5000:5000'
     networks:
       - monitoring-net
+    volumes:
+      - app_logs:/app/logs
     mem_limit: '256m'
     logging:
       driver: 'json-file'
@@ -98,3 +100,6 @@ services:
 
 networks:
   monitoring-net:
+
+volumes:
+   app_logs:
