@@ -24,27 +24,37 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "wait-me.serviceAccountName" . }}
+      serviceAccountName: {{ include "wait-me.serviceAccountName" . }}      
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name:  {{ include "wait-me.fullname" . }}-configmap
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config.json
+              subPath: config.json
           env:
-          - name: MY_PASSWORD
-            valueFrom:
+            - name: MY_PASSWORD
+              valueFrom:
                 secretKeyRef:
                     name: credentials
                     key: password
+
           ports:
             - name: http
               containerPort: 5000
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      restartPolicy: Always
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -1,0 +1,5 @@
+{
+    "conf1": "config 1 field from config-file",
+    "conf2": "config 2 field from config-file",
+    "conf3": "config 3 field from config-file"
+} 
