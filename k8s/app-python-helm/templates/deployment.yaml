@@ -60,6 +60,19 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "1000m"
+          volumeMounts:
+            - name: config
+              mountPath: "/config"
+              readOnly: true
+      volumes:
+        # You set volumes at the Pod level, then mount them into containers inside that Pod
+        - name: config
+          configMap:
+            name: {{ .Release.Name }}-configmap
+            items:
+            - key: "config.json"
+              path: "config.json"
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
