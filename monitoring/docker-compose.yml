@@ -3,8 +3,10 @@ version: '3.7'
 services:
   app_python:
     image: heivory/devops-lab:latest
+    volumes:
+      - app_data:/app/data
     ports:
-       - "5000:5000"
+      - "5000:5000"
     networks:
       - network
     restart: unless-stopped
@@ -86,7 +88,8 @@ services:
     networks:
       - network
 
-
+volumes:
+   app_data:
 
 networks:
   network:
