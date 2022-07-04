@@ -18,8 +18,4 @@ resource "github_repository" "mainrepo" {
 
   visibility = "public"
 
-  template {
-    owner      = "github"
-    repository = "terraform-module-template"
-  }
 }
