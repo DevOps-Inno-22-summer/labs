@@ -19,3 +19,11 @@ spec:
         image: simonwt/moscow-time-fastapi:0.0.1
         ports:
         - containerPort: 8001
+        resources: 
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 50m
+            memory: 80Mi
+      
