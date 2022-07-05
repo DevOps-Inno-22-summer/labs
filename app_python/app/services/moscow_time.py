@@ -3,5 +3,5 @@ import pytz
 
 
 class MoscowTime():
-    def now():
+    def now(self):
         return datetime.datetime.now(pytz.timezone('Europe/Moscow')).strftime("%H:%M:%S, %m/%d/%Y")

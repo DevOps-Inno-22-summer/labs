@@ -3,3 +3,4 @@ DOCKER.md
 PYTHON.md
 venv
 .pytest_*
+logs/*

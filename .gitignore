@@ -5,3 +5,4 @@ venv
 *.tfvars*
 .DS_Store
 secret.tfvars
+logs/*
