@@ -1,9 +1,10 @@
 from app.services.moscow_time import MoscowTime
 
 
-class Visits():
+class Visits:
 
-    moscow_time = MoscowTime()
+    def __init__(self):
+        self.moscow_time = MoscowTime()
 
     def add_visit(self):
         time = self.moscow_time.now()

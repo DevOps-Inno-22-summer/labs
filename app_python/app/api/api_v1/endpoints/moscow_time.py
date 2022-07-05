@@ -6,5 +6,5 @@ router = APIRouter()
 
 @router.get("/")
 def get_moscow_time() -> str:
-    time = MoscowTime.now()
+    time = MoscowTime().now()
     return time
