@@ -53,3 +53,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secrets:
+  name: appid
+  appid: coolapp9000
