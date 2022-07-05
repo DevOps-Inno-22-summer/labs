@@ -10,7 +10,13 @@ Web server which can return Moscow time on page `/api/v1/moscow_time/`
 ## Run
 0. `cd app_python` 
 1. `./run.sh`
-2. Moscow time can be accessed by `/api/v1/moscow_time/` 
+2. Swagger available at `/docs`
+
+
+## Endpoints
+1. Moscow time can be accessed by `/api/v1/moscow_time/` 
+2. Accessing `/` will add time of the visit to `logs/visits.log`
+3. By `/visits` all visits of root url will be returned
 
 ## Run unit tests
 0. `cd app_python` 
