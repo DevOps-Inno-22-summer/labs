@@ -2,9 +2,9 @@ name: Python app CI
 
 on:
   push:
-    branches: [ master,lab3 ]
+    branches: [ master,lab3,lab13 ]
   pull_request:
-    branches: [ master,lab3 ]
+    branches: [ master,lab3,lab13 ]
 
 permissions:
   contents: read
