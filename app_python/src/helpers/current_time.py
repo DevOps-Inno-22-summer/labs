@@ -13,6 +13,6 @@ def record_access():
 
 def get_visits_content():
     """ Get content of visits file """
-    with open('src/files/visits.txt', encoding='UTF-8') as file:
+    with open('src/files/visits.txt',"r+", encoding='UTF-8') as file:
         contents = file.read()
     return contents
