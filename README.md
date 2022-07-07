@@ -1,6 +1,7 @@
 # Description:
 
 This is a simple fastapi application which shows Moscow time and date.
+By going to /visits, visit logs could be seen.
 
 # Dependencies:
 
