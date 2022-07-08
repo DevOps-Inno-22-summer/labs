@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "python-app.fullname" . }}
+spec:
+  serviceName: {{ include "python-app.fullname" . }}
+  podManagementPolicy: {{.Values.podManagementPolicy}}
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "python-app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "python-app.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - name: http
+            containerPort: {{.Values.containerPort}}
+            protocol: TCP
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/config
+  volumeClaimTemplates:
+  - metadata:
+      name: config-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{.Values.storage}}
