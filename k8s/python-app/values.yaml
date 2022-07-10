@@ -87,3 +87,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+prometheus:
+  prometheusSpec:
+    shards: 2

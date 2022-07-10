@@ -11,6 +11,8 @@ spec:
       {{- include "python-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      # annotations:
+      #   prometheus.io/scrape: "true"
       labels:
         {{- include "python-app.selectorLabels" . | nindent 8 }}
     spec:
@@ -27,6 +29,7 @@ spec:
         volumeMounts:
           - name: config-volume
             mountPath: /etc/config
+
   volumeClaimTemplates:
   - metadata:
       name: config-volume
