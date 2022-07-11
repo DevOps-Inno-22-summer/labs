@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "python-app.fullname" . }}
   labels:
     {{- include "python-app.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "python-app.fullname" . }}
+  podManagementPolicy: "Parallel"
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -27,10 +29,6 @@ spec:
       serviceAccountName: {{ include "python-app.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      volumes:
-      - name: config-volume
-        configMap:
-          name: configmap
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -46,9 +44,8 @@ spec:
           - name: LABS_REMAINING
             value: "TWO"
           volumeMounts:
-          - name: config-volume
-            mountPath: /files/config.json
-            subPath: config.json
+            - name: visits
+              mountPath: /home/app/data/
           ports:
             - name: http
               containerPort: 5000
@@ -75,3 +72,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: visits
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 128M
