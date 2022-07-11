@@ -17,5 +17,8 @@ WORKDIR /app
 COPY --from=env /opt/env /app/env
 COPY . .
 
+RUN mkdir /app/logs
+RUN touch /app/logs/visits.log
+
 CMD ["/app/env/bin/python", "-m", "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
 EXPOSE 5000
