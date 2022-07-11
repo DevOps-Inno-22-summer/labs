@@ -36,6 +36,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
+            - name: workdir
+              mountPath: /workdir/
             - name: config-volume
               mountPath: /etc/config
           ports:
@@ -58,8 +60,21 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      
+      initContainers:
+        - name: install
+          image: busybox:1.28
+          command:
+          - wget
+          - "-O"
+          - "/work-dir/index.html"
+          - http://info.cern.ch
+          volumeMounts:
+          - name: workdir
+            mountPath: "/work-dir"
+      dnsPolicy: Default
       volumes:
+        - name: workdir
+          emptyDir: {}
         - name: config-volume
           configMap:
             name: my-config-map
