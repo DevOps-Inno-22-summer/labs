@@ -6,6 +6,7 @@ metadata:
     {{- include "wait-me.labels" . | nindent 4 }}
 spec:
   serviceName: "nginx"
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
