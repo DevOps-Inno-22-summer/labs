@@ -1,14 +1,13 @@
 from flask import Flask
 from datetime import datetime
 import pytz
-from flask_healthz import healthz
-from locallogger import LocalLogger as locallogger
+from LocalLogger import LocalLogger
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def index():
-    locallogger.addVisit()
+    LocalLogger.addVisit()
     tz = pytz.timezone("Europe/Moscow")
     time = datetime.now(tz)
     return time.strftime("%H:%M:%S")
@@ -21,4 +20,4 @@ if __name__ == "__main__":
     
 @app.route('/visits', methods=['GET'])
 def visitors():
-    return locallogger.getVisits().replace('\n', "<br>") #<br> template hack
+    return LocalLogger.getVisits().replace('\n', "<br>") #<br> template hack

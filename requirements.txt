@@ -1,5 +1,5 @@
 Flask==2.1.2
+flask-healthz==0.0.3
 pytz==2022.1
 pylint==2.13.9
 pytest==7.1.2
-flask-healthz==0.0.3
