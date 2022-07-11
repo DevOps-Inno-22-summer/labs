@@ -73,7 +73,6 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
@@ -82,5 +81,11 @@ tolerations: []
 affinity: {}
 
 secrets:
-    name: app-python-name-secret
-    username: app-python-user
+  name: app-python-name-secret
+  username: app-python-user
+
+podManagementPolicy: "Parallel"
+
+statefulSet:
+  name: visits
+  storageSize: 128M
