@@ -85,15 +85,15 @@ FAILED (failures=1)
 
 #### `test__get_moscow_time_api__api_responds`
 
-Tested methods: None (accessibility test of external API)
-Performed actions: request is performed to `http://worldtimeapi.org/api/timezone/Europe/Moscow`
-Expected result: request returns with `request.ok` flag set to `True` (request was handled successfully)
+* Tested methods: None (accessibility test of external API)
+* Performed actions: request is performed to `http://worldtimeapi.org/api/timezone/Europe/Moscow`
+* Expected result: request returns with `request.ok` flag set to `True` (request was handled successfully)
 
 #### `test__api_and_local_get_time__time_diff_less_than_2s`
 
-Tested methods: `get_moscow_time`, `get_moscow_time_api`
-Performed actions: both methods are executed, returned timestamps are compared
-Expected result: difference between timestamps is less than 2 seconds (in any direction)
+* Tested methods: `get_moscow_time`, `get_moscow_time_api`
+* Performed actions: both methods are executed, returned timestamps are compared
+* Expected result: difference between timestamps is less than 2 seconds (in any direction)
 
 ## Docker
 
@@ -136,7 +136,7 @@ docker run -p 5000:5000 ilyanokhrin/app-python
 
 Reasons to use Flask:
 
-* **It's popular**: Flask is one of the most popular web frameworks for Python. Because of that, it has an extensive amount of code examples and well documentation, as well as active community.
+* **It's popular**: Flask is one of the most popular web frameworks for Python. Because of that, it has an extensive amount of code examples and thorough documentation, as well as active community.
 * **It's modular**: Flask supports wide variety of modules, which can be used to extend basic Flask functionality.
 * **It's lightweight**: As a consequence of its modularity, Flask only comes with basic functionality built-in and is very lightweight as a result.
 
