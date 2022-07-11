@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "python-app.fullname" . }}
   labels:
     {{- include "python-app.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "python-app.fullname" . }}-service
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -29,6 +31,8 @@ spec:
         - name: config-volume
           configMap:
             name: {{ include "python-app.fullname" . }}-configmap
+        - name: workdir
+          emptyDir: { }
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -41,17 +45,21 @@ spec:
           - name: config-volume
             mountPath: /files/config.json
             subPath: config.json
+          - name: {{ .Values.statefulSet.name }}
+            mountPath: /python-app/
+          - name: workdir
+            mountPath: /workdir/
           ports:
             - name: http
               containerPort: 5000
               protocol: TCP
           livenessProbe:
-            initialDelaySeconds: 180
+            initialDelaySeconds: 60
             httpGet:
               path: /
               port: http
           readinessProbe:
-            initialDelaySeconds: 180
+            initialDelaySeconds: 60
             httpGet:
               path: /
               port: http
@@ -69,3 +77,23 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      initContainers:
+      - name: install
+        image: busybox
+        command:
+          - wget
+          - "-O"
+          - "/workdir/index.html"
+          - https://www.helloworld.org/
+        volumeMounts:
+          - name: workdir
+            mountPath: "/workdir"
+      dnsPolicy: Default
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.statefulSet.name }}
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.statefulSet.storageSize }}
