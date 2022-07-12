@@ -14,6 +14,7 @@ def moscow():
     localDatetime = datetime.now().astimezone(pytz.timezone(tzone))
     return localDatetime.strftime("%Y-%m-%d %H:%M:%S")
 
+
 @app.route('/visits', methods=['POST', 'GET'])
 def visitors():
     return logger.getVisitors().replace('\n', "<br>")

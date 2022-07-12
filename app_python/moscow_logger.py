@@ -1,6 +1,7 @@
 import datetime
 import os
 
+
 class MoscowLogger:
 
     __file_name__ = "data/logs.txt"
