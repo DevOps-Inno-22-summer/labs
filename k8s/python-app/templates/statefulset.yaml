@@ -46,6 +46,8 @@ spec:
           volumeMounts:
             - name: visits
               mountPath: /home/app/data/
+            - name: init-container-vol
+              mountPath: /init
           ports:
             - name: http
               containerPort: 5000
@@ -60,6 +62,16 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+        - name: init-container
+          image: busybox
+          command: [ "wget", "-O", "/init/simple.html", "https://dataquestio.github.io/web-scraping-pages/simple.html" ]
+          volumeMounts:
+            - name: init-container-vol
+              mountPath: /init
+      volumes:
+        - name: init-container-vol
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
