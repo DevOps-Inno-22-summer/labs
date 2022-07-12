@@ -6,7 +6,7 @@ metadata:
     {{- include "python-app.labels" . | nindent 4 }}
 spec:
   serviceName: {{ include "python-app.fullname" . }}
-  podManagementPolicy: "Parallel"
+  podManagementPolicy: {{ .Values.statefulset.podManagementPolicy }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -45,7 +45,7 @@ spec:
             value: "TWO"
           volumeMounts:
             - name: visits
-              mountPath: /home/app/data/
+              mountPath: {{ .Values.statefulset.visitsMountPath }}
           ports:
             - name: http
               containerPort: 5000

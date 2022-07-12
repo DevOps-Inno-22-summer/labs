@@ -24,6 +24,10 @@ podSecurityContext: {}
 
 securityContext: {}
 
+statefulset:
+  podManagementPolicy: "Parallel"
+  visitsMountPath: /home/app/data/
+
 service:
   name: python-app-service
   type: LoadBalancer
