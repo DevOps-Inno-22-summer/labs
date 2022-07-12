@@ -2,11 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: simonwt/moscow-time-fastapi
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -62,11 +62,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 100m
-    memory: 100Mi
+    cpu: 1000m
+    memory: 1000Mi
   requests:
-    cpu: 50m
-    memory: 80Mi
+    cpu: 500m
+    memory: 800Mi
 
 autoscaling:
   enabled: false
