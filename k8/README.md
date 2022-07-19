@@ -38,4 +38,4 @@ k8s.io/minikube/cmd/minikube/cmd.Execute()
 	/app/cmd/minikube/cmd/root.go:170 +0xb46
 main.main()
 	/app/cmd/minikube/main.go:88 +0x255
-
+![](https://github.com/nyahonk/DevOpsLabs/blob/lab9/screenshots/kubers.png?raw=true)
