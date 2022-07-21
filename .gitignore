@@ -11,3 +11,4 @@ precise32
 # Terraform
 *.tfvars
 *.hcl
+.terraform/
