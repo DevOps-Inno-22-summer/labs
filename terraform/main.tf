@@ -1,7 +1,7 @@
 resource "github_repository" "devops_labs" {
-    name    = "devops_labs"
-    description = "DevOps lab 4"
-    visibility = "public"
+  name        = "devops_labs"
+  description = "Solutions to DevOps labs"
+  visibility  = "public"
 }
 
 resource "github_branch_default" "default" {
@@ -10,6 +10,7 @@ resource "github_branch_default" "default" {
 }
 
 resource "github_branch_protection" "devops_labs" {
-  pattern       = "master"
-  repository_id = github_repository.devops_labs.node_id
+  pattern                 = "master"
+  repository_id           = github_repository.devops_labs.node_id
+  required_linear_history = true
 }

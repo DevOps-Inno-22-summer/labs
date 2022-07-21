@@ -9,5 +9,6 @@ terraform {
 
 # Configure the GitHub Provider
 provider "github" {
-    token = var.token
+  token = var.github_token
+  owner = "war-and-peace"
 }
