@@ -1,4 +1,8 @@
 version: "3"
+
+volumes:
+  app_volume:
+
 services:
   uwsgi_django_project:
     container_name: django_project
@@ -7,6 +11,9 @@ services:
     ports:
       - "8000:8000"
     command: uwsgi --http :8000 --module django_project.wsgi
+    volumes:
+      - app_volume:/app_volume
+
 
   test_django_project:
     container_name: test_django_project
@@ -17,3 +24,4 @@ services:
     container_name: check_django_project
     image: app_python_build
     command: flake8 django_project/
+

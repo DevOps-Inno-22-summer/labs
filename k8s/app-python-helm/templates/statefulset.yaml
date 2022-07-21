@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "app-python-helm.fullname" . }}
   labels:
     {{- include "app-python-helm.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "app-python-helm.fullname" . }}
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -35,24 +37,26 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["uwsgi"]
           args: ["--http", ":8000", "--module", "django_project.wsgi"]
-          env:
-            - name: MY_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: credentials
-                  key: token
+#          env:
+#            - name: MY_TOKEN
+#              valueFrom:
+#                secretKeyRef:
+#                  name: credentials
+#                  key: token
           ports:
             - name: http
               containerPort: 8000
               protocol: TCP
           livenessProbe:
+            initialDelaySeconds: 30
             httpGet:
               path: /
-              port: http
+              port: 8000
           readinessProbe:
+            initialDelaySeconds: 30
             httpGet:
               path: /
-              port: http
+              port: 8000
           resources:
             requests:
               memory: "64Mi"
@@ -64,6 +68,8 @@ spec:
             - name: config
               mountPath: "/config"
               readOnly: true
+            - name: {{ .Values.statefulSet.name }}
+              mountPath: /app_volume/
       volumes:
         # You set volumes at the Pod level, then mount them into containers inside that Pod
         - name: config
@@ -85,3 +91,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.statefulSet.name }}
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: {{ .Values.statefulSet.storageSize }}
