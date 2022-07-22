@@ -45,6 +45,14 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: "/config"
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: devopslab-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
