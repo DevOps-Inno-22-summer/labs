@@ -70,6 +70,8 @@ spec:
               readOnly: true
             - name: {{ .Values.statefulSet.name }}
               mountPath: /app_volume/
+            - name: workdir
+              mountPath: /workdir/
       volumes:
         # You set volumes at the Pod level, then mount them into containers inside that Pod
         - name: config
@@ -78,6 +80,8 @@ spec:
             items:
             - key: "config.json"
               path: "config.json"
+        - name: workdir
+          emptyDir: { }
 
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -91,6 +95,18 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      initContainers:
+        - name: install
+          image: busybox:1.28
+          command:
+            - wget
+            - "-O"
+            - "/workdir/index.html"
+            - http://info.cern.ch
+          volumeMounts:
+            - name: workdir
+              mountPath: "/workdir"
+      dnsPolicy: Default
   volumeClaimTemplates:
     - metadata:
         name: {{ .Values.statefulSet.name }}
