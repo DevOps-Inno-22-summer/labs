@@ -17,5 +17,12 @@ spec:
       containers:
       - name: app-python
         image: megara/devops-app-python:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
         ports:
         - containerPort: 5000
