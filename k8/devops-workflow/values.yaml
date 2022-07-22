@@ -80,3 +80,9 @@ nodeSelector: { }
 tolerations: [ ]
 
 affinity: { }
+
+podManagementPolicy: "Parallel"
+#
+statefulSet:
+  storageSize: 128M
+  name: visits
