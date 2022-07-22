@@ -1,5 +1,8 @@
 version: "3"
 
+volumes:
+  app_volume:
+
 networks:
   loki:
 
@@ -52,7 +55,7 @@ services:
     command: runserver 0.0.0.0:8000
 
     volumes:
-      - /home/newuser:/home/user
+      - app_volume:/app_volume
     expose:
       - 8000
     ports:
