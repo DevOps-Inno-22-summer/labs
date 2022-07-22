@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "devops-workflow.fullname" . }}
   labels:
     {{- include "devops-workflow.labels" . | nindent 4 }}
 spec:
+  serviceName: { { include "devops-workflow.fullname" . } }
+    podManagementPolicy: { { .Values.podManagementPolicy } }
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -49,6 +51,8 @@ spec:
             - name: config
               mountPath: "/config"
               readOnly: true
+            - name: { { .Values.statefulSet.name } }
+              mountPath: /app_volume/
       volumes:
         - name: config
           configMap:
@@ -65,3 +69,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.statefulSet.name }}
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: {{ .Values.statefulSet.storageSize }}
