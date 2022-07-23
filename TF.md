@@ -18,4 +18,10 @@
 ### TerraformGithub:
 ![TerraformGit](screenshots/TerraformGit.png)
 
+## Lab5
 
+![VMLab5](screenshots/VMLab5.png)
+
+![SubnetLab5](screenshots/SubnetLab5.png)
+
+![OutputLab5](screenshots/OutputsLab5.png)

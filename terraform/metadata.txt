@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: DaniilShil
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiTLz2LfofgEPeSbOfhvg/616W6nVKQTri1X25ct1Tcd7PWce2cQibB9vX9qK+l6uVq2CxvGHEzLM/pN5NOVjvhjkZoh0aG3D61IyO9HE1/dn0K+xVFn1yDLEn5heX2xPhYK/DT7Nda5vYEd7eTAkIU4EBj8tuiXTR0VJDL11FV0OtrtM3DZ7A/GIAzgaB+MFJ7Qdatmvcea3CwjvC6WBo4rxWP5X7Audx1BpZPk7LmvKw3j1w8oN8kT9Rput6pODk7b/sb9T5l6yxBWT4btvCl0yMM8PNllKVNMhnPPKxug7KeixllnBivi5FbYCFPhO+YmYvtBK4bmkbTRtfjVF3 MacBook-Pro-DaniilShil@DaniilShil

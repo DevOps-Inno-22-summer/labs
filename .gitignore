@@ -8,3 +8,5 @@ media
 *.pot
 *.pyc
 .vagrant
+terraform/.terraform*
+terraform/secret.tfvars
