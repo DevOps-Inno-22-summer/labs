@@ -21,6 +21,7 @@ services:
       - logging
     environment:
     - SECRET_KEY="${SECRET_KEY}"
+    - LOG_FILENAME="${LOG_FILENAME}"
     volumes:
       - ${PWD}/log:/var/log
     mem_limit: "256m"

@@ -7,6 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR.parent, '.env'))
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+LOG_FILENAME = os.environ.get('LOG_FILENAME', 'app.log')
 
 DEBUG = False
 
@@ -19,7 +20,7 @@ LOGGING = {
         'file': {
             'level': 'WARN',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/app_python.log',
+            'filename': LOG_FILENAME,
         },
     },
     'loggers': {
