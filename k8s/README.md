@@ -1,3 +1,21 @@
+# LAB 10
+
+### kubectl get pods,svc output(HELM)
+```
+NAME                                         READY   STATUS    RESTARTS      AGE
+pod/app-python-helm-6575bbcc9b-pzklc         1/1     Running   0             38s
+pod/python-app-deployment-54b99bfc96-184fg   1/1     Running   1 (17d ago)   17d
+pod/python-app-deployment-54b99bfc96-ml9if   1/1     Running   1 (17d ago)   17d
+pod/python-app-deployment-54b99bfc96-pcwz2   1/1     Running   1 (17d ago)   17d
+
+NAME                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/app-python-helm      NodePort    10.98.72.63     <none>        8000:32139/TCP   38s
+service/kubernetes           ClusterIp   10.96.0.1       <none>        443/TCP          19d
+service/python-app-service   NodePort    10.99.239.250   <none>        8000:31422/TCP   18d
+```
+
+
+# LAB 9
 # Before applying deployment:
 
 ### kubectl get pods output
