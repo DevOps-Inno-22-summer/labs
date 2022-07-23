@@ -1,0 +1,8 @@
+- name: Pull image from registry
+  shell: docker pull danilkadocker99/moscow_app
+
+- name: Mock .env value
+  shell: echo SECRET_KEY=1 >> .env
+
+- name: Run image
+  shell: docker run --env-file=.env -p 8000:8000 danilkadocker99/moscow_app
