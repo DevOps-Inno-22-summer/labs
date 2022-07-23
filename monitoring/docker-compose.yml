@@ -1,0 +1,58 @@
+version: "3.9"
+
+volumes:
+  grafana-data: {}
+  promtail-data: {}
+
+networks:
+  logging:
+
+services:
+  web:
+    image: ${IMAGE_NAME}
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    networks:
+      - logging
+    environment:
+    - SECRET_KEY="${SECRET_KEY}"
+    volumes:
+      - ${PWD}/log:/var/log
+
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION}
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    restart: unless-stopped
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - logging
+
+  loki:
+    image: grafana/loki:${LOKI_VERSION}
+    ports:
+      - "3100:3100"
+    expose:
+      - 3100
+    restart: unless-stopped
+    networks:
+      - logging
+
+  promtail:
+    image: grafana/promtail:${PROMTAIL_VERSION}
+    ports:
+      - "9080:9080"
+    expose:
+      - 9080
+    restart: unless-stopped
+    volumes:
+      - promtail-data:/var/lib/promtail/positions
+      - ${PWD}/log:/var/log
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - logging

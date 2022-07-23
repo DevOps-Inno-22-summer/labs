@@ -10,3 +10,4 @@ media
 .vagrant
 terraform/.terraform*
 terraform/secret.tfvars
+monitoring/log
