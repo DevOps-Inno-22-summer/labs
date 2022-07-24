@@ -19,7 +19,7 @@ def current_time():
 
 
 @app.route('/visits')
-def current_time():
+def visits():
     logs = ''
     with open('logs.txt', 'r') as f:
         logs = f.read()
