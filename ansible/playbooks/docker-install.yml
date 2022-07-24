@@ -1,0 +1,19 @@
+- name: Install docker on remote machines
+  hosts: terraform
+  become: yes
+  remote_user: ubuntu
+  any_errors_fatal: true
+  vars:
+    pip_install_packages:
+      - name: docker
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+- name: Deploy docker
+  hosts: terraform
+  become: yes
+  remote_user: ubuntu
+  any_errors_fatal: true
+  roles:
+    - deploy

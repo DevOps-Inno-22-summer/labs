@@ -1,0 +1,9 @@
+- name: Deploy docker container.
+  docker_container:
+    image: megara/devops-app-python:latest
+    name: devops-app-python
+    state: started
+    auto_remove: true
+    ports:
+      - "5000:5000"
+
