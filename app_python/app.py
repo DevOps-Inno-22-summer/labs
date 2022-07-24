@@ -14,7 +14,7 @@ app = Flask(__name__)
 def current_time():
     moscow_timezone = pytz.timezone('Europe/Moscow')
     datetime_moscow = datetime.now(moscow_timezone)
-    logging.debug('main function called :' + datetime_moscow)
+    logging.debug('main function called :' + str(datetime_moscow))
     return f"Moscow: {datetime_moscow.strftime('%Y:%m:%d %H:%M:%S %Z %z')}"
 
 
