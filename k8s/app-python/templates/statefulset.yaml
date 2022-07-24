@@ -4,7 +4,7 @@ metadata:
   name: app-python
 spec:
   serviceName: app-python-service
-    replicas: 3
+    replicas: 1
   selector:
     matchLabels:
       app: app-python
@@ -13,6 +13,18 @@ spec:
       labels:
         app: app-python
     spec:
+      initContainers:
+       - name: install
+         image: busybox:1.28
+         command:
+         - wget
+         - "-O"
+         - "/workdir/index.html"
+         - http://info.cern.ch
+         volumeMounts:
+         - name: workdir
+           mountPath: "/workdir"
+       dnsPolicy: Default
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -50,6 +62,8 @@ spec:
               readOnly: true
             - name: { { .Values.statefulSet.name } }
                 mountPath: /app-python/
+            - name: workdir
+               mountPath: /workdir/
       volumes:
         - name: config
           configMap:
