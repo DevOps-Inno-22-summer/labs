@@ -1,32 +1,18 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: {{ include "app-python.fullname" . }}
-  labels:
-    {{- include "app-python.labels" . | nindent 4 }}
+  name: app-python
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  serviceName: app-python-service
+    replicas: 3
   selector:
     matchLabels:
-      {{- include "app-python.selectorLabels" . | nindent 6 }}
+      app: app-python
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
-        {{- include "app-python.selectorLabels" . | nindent 8 }}
+        app: app-python
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "app-python.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -43,6 +29,14 @@ spec:
             - name: http
               containerPort: 8000
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            readinessProbe:
+              httpGet:
+                path: /
+                port: http
           resources:
             requests:
               memory: "64Mi"
@@ -52,8 +46,10 @@ spec:
                 cpu: "1000m"
           volumeMounts:
             - name: config
-              mountPath: "/config"
+              mountPath: /config
               readOnly: true
+            - name: { { .Values.statefulSet.name } }
+                mountPath: /app-python/
       volumes:
         - name: config
           configMap:
@@ -70,3 +66,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+   - metadata:
+       name: {{ .Values.statefulSet.name }}
+     spec:
+       accessModes: [ "ReadWriteOnce" ]
+       resources:
+         requests:
+           storage: {{ .Values.statefulSet.storageSize }}

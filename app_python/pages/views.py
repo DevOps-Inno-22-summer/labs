@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def homePageView(request):
-    with open('timelogger.txt', 'w') as f:
+    with open('timelogger.txt', 'a') as f:
         print(datetime.now(), file=f)
     return HttpResponse("Hey from home. We have logged your time")
 

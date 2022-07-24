@@ -11,7 +11,7 @@ LOG_FILENAME = os.environ.get('LOG_FILENAME', '/')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 if not DEBUG:
      LOGGING = {
