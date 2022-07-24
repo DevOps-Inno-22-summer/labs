@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 volumes:
   grafana-data: {}
@@ -24,6 +24,7 @@ services:
     - LOG_FILENAME="${LOG_FILENAME}"
     volumes:
       - ${PWD}/log:/var/log
+      - ${PWD}/timeloger.txt:/var/timeloger.txt
     mem_limit: "256m"
     logging:
       driver: "json-file"

@@ -6,14 +6,15 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR.parent, '.env'))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-LOG_FILENAME = os.environ.get('LOG_FILENAME', 'app.log')
+SECRET_KEY = os.environ.get('SECRET_KEY', '1')
+LOG_FILENAME = os.environ.get('LOG_FILENAME', '/')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
-LOGGING = {
+if not DEBUG:
+     LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
