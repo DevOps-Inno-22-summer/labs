@@ -1,0 +1,7 @@
+---
+
+- name: Pull image
+  shell: docker pull ananasness/iu-devops-labs:laba2
+
+- name: Run container
+  shell: docker run -p "8000:8000" -d ananasness/iu-devops-labs:laba2 uwsgi --http :8000 --module django_project.wsgi
