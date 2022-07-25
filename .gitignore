@@ -1,0 +1,7 @@
+*.tgz
+*.log
+.DS_STORE
+*.tfstate
+*.lock.hcl
+*.tfstate.backup
+.terraform
