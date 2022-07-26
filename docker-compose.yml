@@ -26,9 +26,13 @@ services:
     image: grafana/promtail:2.5.0
     volumes:
       - /var/log:/var/log
-    command: -config.file=/etc/promtail/config.yml
+      - /var/lib/docker/containers/:/var/lib/docker/containers
+      - ./promtail.yml:/etc/promtail/promtail.yml
+    command: -config.file=/etc/promtail/promtail.yml
     networks:
       - loki
+    ports:
+      - '9080:9080'
     mem_limit: '256m'
     logging:
       driver: 'json-file'
@@ -36,6 +40,7 @@ services:
         max-size: '100m'
         max-file: '3'
         tag: '{{.ImageName}}'
+
   grafana:
     image: grafana/grafana:latest
     ports:
@@ -56,7 +61,7 @@ services:
     ports:
       - '9090:9090'
     command:
-      - '--config.file=/etc/prometheus/prometheus.yaml'
+      - --config.file=/etc/prometheus/prometheus.yaml
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
     networks:
