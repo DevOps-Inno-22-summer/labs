@@ -4,33 +4,78 @@ networks:
   loki:
 
 services:
-#  loki:
-#    image: grafana/loki:2.5.0
-#    ports:
-#      - "3100:3100"
-#    command: -config.file=/etc/loki/local-config.yaml
-#    networks:
-#      - loki
-#
-#  promtail:
-#    image: grafana/promtail:2.5.0
-#    volumes:
-#      - /var/log:/var/log
-#    command: -config.file=/etc/promtail/config.yml
-#    networks:
-#      - loki
-#
-#  grafana:
-#    image: grafana/grafana:latest
-#    ports:
-#      - "3000:3000"
-#    networks:
-#      - loki
-   
+  loki:
+    image: grafana/loki:2.5.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '3'
+        tag: '{{.ImageName}}'
+
+  promtail:
+    image: grafana/promtail:2.5.0
+    volumes:
+      - /var/log:/var/log
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - loki
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '3'
+        tag: '{{.ImageName}}'
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - loki
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '3'
+        tag: '{{.ImageName}}'
+
+  prometheus:
+    image: prom/prometheus:v2.36.1
+    container_name: monitoring-prometheus
+    ports:
+      - '9090:9090'
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    networks:
+      - loki
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '3'
+        tag: '{{.ImageName}}'
+
   python_app:
     container_name: python_app
     image: nyahonk/devops_course:latest
     command: runserver 0.0.0.0:8000
+    mem_limit: '256m'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        tag: '{{.ImageName}}'
 
     volumes:
       - /home/newuser:/home/user
