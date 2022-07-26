@@ -14,8 +14,6 @@ WORKDIR /home/code
 
 EXPOSE 8000
 
-RUN chown daemon:daemon -R /home/app
-
 VOLUME /etc/files/
 
 # runs the production server
