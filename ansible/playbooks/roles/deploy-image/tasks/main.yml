@@ -1,0 +1,8 @@
+- name: Pull image from registry
+  shell: docker pull rungiantboom/devopslab:latest
+
+- name: Mock .env value
+  shell: echo SECRET_KEY=1 >> .env
+
+- name: Run image
+  shell: docker run --env-file=.env -p 5000:5000 rungiantboom/devopslab:latest
