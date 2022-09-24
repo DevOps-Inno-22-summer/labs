@@ -1,7 +1,10 @@
 resource "github_repository" "labs" {
-  name        = "labs"
-  description = "DevOps class"
-  visibility  = "public"
+  name          = "labs"
+  description   = "DevOps class"
+  visibility    = "public"
+  has_downloads = true
+  has_projects  = true
+  has_wiki      = true
 }
 
 resource "github_branch_default" "default" {
