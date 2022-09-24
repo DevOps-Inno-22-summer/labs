@@ -10,7 +10,7 @@ resource "github_branch_default" "default" {
 }
 
 resource "github_branch_protection" "labs" {
-  pattern                 = "master"
+  pattern                 = "protected"
   repository_id           = github_repository.labs.node_id
   required_linear_history = true
 }

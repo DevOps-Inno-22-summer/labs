@@ -11,9 +11,6 @@ After applying terraform VM was created:
 Related resources were added as well:
 ![related resources](./screenshots/attached-resources.png)
 
-## Vagrant
-
-
 ## References
 
 * Manage github repo through [terraform config](https://learn.hashicorp.com/tutorials/terraform/github-user-teams)
