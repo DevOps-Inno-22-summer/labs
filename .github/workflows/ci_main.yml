@@ -59,7 +59,7 @@ jobs:
         python -m pip install requests
     - name: Run tests
       run: |
-        python -m unittest test_app
+        python -m unittest test_app.py
   
   docker:
     name: Build, cache and publish docker
