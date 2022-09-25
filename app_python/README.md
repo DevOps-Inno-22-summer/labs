@@ -4,7 +4,7 @@
 - The python time method `ctime()` converts a time expressed in seconds since the epoch to a string representing local time. If secs is not provided or None, the current time as returned by time() is used. This function is equivalent to asctime(localtime(secs)).
 - The `ntplib` module offers a simple interface to query NTP servers from Python. 
 - Consequently The method `print_time` prints the time that is in the machine where the app is running.
-- `if __name__ == “main”:` is used to execute some code <em>only if the file was run directly</em>, and not imported. 
+- `if __name__ == “main”:` is used to execute some code *only if the file was run directly*, and not imported. 
 
 ## Docker section (Lab2):
 
@@ -18,3 +18,9 @@ The Dockerfile creation of this work is based on the article [<em> How to Docker
 - Finally, there is an `EXPOSE` tag which simply lets Docker know that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified. The EXPOSE instruction does not actually publish the port.
 
 - The image can be downloaded from [my Docker Hub](https://hub.docker.com/r/robertrons/app_python/tags). To run the image, you must run this command: `docker run -p 5000:5000  robertrons/app_python:1.0` Then the app will run on: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+## Continuous integration (Lab3):
+
+### Code testing:
+
+The file *test_app.py* contains the tests for the *app.py* application file. To run the tests, please use the command `python -m unittest test_app` in a command line interface (cli). Check the file *PYTHON.md* for details of what the tests do.
