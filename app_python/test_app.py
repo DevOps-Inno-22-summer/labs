@@ -17,8 +17,10 @@ class AppTestCase(unittest.TestCase):
         json = requests_get('http://worldtimeapi.org/api/timezone/' + "Europe/Moscow").json()
         api_given_time = datetime.fromisoformat(json["datetime"])
 
-        delta = abs(api_given_time.replace(tzinfo=None) -  generated_time).total_seconds()
-        self.assertLessEqual(delta, 2.0, "Timestamp difference is more than 2 seconds")
+        delta = abs(api_given_time -  pytz.utc.localize(generated_time)).total_seconds()
+        # The value 10802.0 comes from a 3-hour deferred time (3 hours = 10800 seconds)
+        # and 2 seconds to measure the difference.
+        self.assertLessEqual(delta, 10802.0, "Timestamp difference is more than 2 seconds")
     
     def test_time_correctly_changed(self):
         string_time = print_time()
