@@ -59,6 +59,7 @@ jobs:
         python -m pip install requests
         python -m pip install Flask
         python -m pip install ntplib
+        python -m pip install pytz
     - name: Run tests
       run: |
         cd app_python

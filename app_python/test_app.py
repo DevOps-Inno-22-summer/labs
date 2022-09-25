@@ -3,6 +3,7 @@ from app import print_time
 from requests import get as requests_get
 from datetime import datetime
 import unittest
+import pytz
 
 
 class AppTestCase(unittest.TestCase):
