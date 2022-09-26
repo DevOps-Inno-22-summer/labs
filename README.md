@@ -29,7 +29,9 @@ Before running the tests command, the python libraries `requests`, `pytz`, and `
 
 ### GitHub CI actions:
 
-A new fail ci_main.yml is added that develops the CI tasks for the project. Mainly, 3 jobs are configured for the CI (continuous integration) process:
+The [configure GitHub Actions](https://docs.docker.com/ci-cd/github-actions/) docker tutorial was used to set up a Docker project.
+
+A new file ci_main.yml is added that develops the CI tasks for the project. Mainly, 3 jobs are configured for the CI (continuous integration) process:
 
 1. **Build the application:** The applicattion is build with all its dependencies and connected with the flask framework.
 2. **Run tests:** In this stage, unit tests are executed to test the application's correct functionalities.
