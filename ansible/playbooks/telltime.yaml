@@ -1,0 +1,9 @@
+---
+- name: Docker
+  import_playbook: docker.yaml
+
+- name: Start Tell time app
+  hosts: app_servers
+  become: true
+  roles:
+    - telltime

@@ -1,0 +1,8 @@
+---
+- name: Deploy telltime container
+  docker_container:
+    image: codeomatic/telltime:latest
+    name: telltime
+    state: started
+    ports:
+      - "8080:8080"
