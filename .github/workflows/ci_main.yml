@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build application and lint it with flake8
+    name: Build application and lint it with flask
     runs-on: ubuntu-latest
     env:
       working_dir: app_python

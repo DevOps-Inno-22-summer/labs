@@ -24,3 +24,17 @@ The Dockerfile creation of this work is based on the article [<em> How to Docker
 ### Code testing:
 
 The file *test_app.py* contains the tests for the *app.py* application file. To run the tests, please use the command `python -m unittest test_app` in a command line interface (cli). Check the file *PYTHON.md* for details of what the tests do.
+
+Before running the tests command, the python libraries `requests`, `pytz`, and `unittest` should be installed.
+
+### GitHub CI actions:
+
+A new fail ci_main.yml is added that develops the CI tasks for the project. Mainly, 3 jobs are configured for the CI (continuous integration) process:
+
+1. **Build the application:** The applicattion is build with all its dependencies and connected with the flask framework.
+2. **Run tests:** In this stage, unit tests are executed to test the application's correct functionalities.
+3. **Build, chache and publish docker:** In this stage, the application is ready for the integration and a docker project is set up. 
+
+The CI workflow status badge:
+
+![Python time app workflow](https://github.com/RobertronS/labsDevOpsMasterProgram/actions/workflows/ci_main.yml/badge.svg)
