@@ -1,5 +1,9 @@
 # History
 
+## Lab 6 fix
+
+* Add an Ansible role to deploy Docker container inside a VM
+
 ## Lab 5 fix
 
 * Change Vagrant config to use one vm with larger memory
