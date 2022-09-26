@@ -1,5 +1,0 @@
-plugin: gcp_compute
-projects:
-  - "{{ lookup('env','GOOGLE_CLOUD_PROJECT') }}"
-auth_kind: serviceaccount
-service_account_file: "/home/{{ lookup('env','USER') }}/.ssh/temp-serviceaccount.json"

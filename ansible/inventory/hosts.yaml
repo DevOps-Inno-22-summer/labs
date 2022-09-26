@@ -1,0 +1,3 @@
+[app_servers]
+# Can be initialized using `vagrant ssh-config >> ~/.ssh/config`
+alpha

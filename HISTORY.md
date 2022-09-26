@@ -1,5 +1,10 @@
 # History
 
+## Lab 5 fix
+
+* Change Vagrant config to use one vm with larger memory
+* Add Ansible configs with Docker playbook
+
 ## Lab 4 fix
 
 * Vagrant file with a config for 3 VMs

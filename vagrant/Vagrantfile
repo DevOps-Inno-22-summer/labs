@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 
 nodes = [
-  { :hostname => 'alpha',   :ip => '192.168.56.2', :box => 'ubuntu/focal64', :ram => '256'},
-  { :hostname => 'bravo',   :ip => '192.168.56.3', :box => 'ubuntu/focal64', :ram => '256'},
-  { :hostname => 'charlie', :ip => '192.168.56.4', :box => 'ubuntu/focal64', :ram => '256'},
+  { :hostname => 'alpha',   :ip => '192.168.56.2', :box => 'ubuntu/focal64', :ram => '1024'},
+  #{ :hostname => 'bravo',   :ip => '192.168.56.3', :box => 'ubuntu/focal64', :ram => '256'},
+  #{ :hostname => 'charlie', :ip => '192.168.56.4', :box => 'ubuntu/focal64', :ram => '256'},
 ]
 
 Vagrant.configure("2") do |config|
@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     config.vm.define node[:hostname] do |nodeconfig|
       nodeconfig.vm.box = node[:box]
       nodeconfig.vm.hostname = node[:hostname]
-      nodeconfig.vm.network :private_network, ip: node[:ip]
+      nodeconfig.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
 
       nodeconfig.vm.provider :virtualbox do |vb|
         vb.memory = node[:ram]
