@@ -17,3 +17,7 @@ Not possible to work with vagrant (VPN issues)
 
 ![VagrantIssues](../images/vagrant_issues.png)
 
+
+## Terraform WorkSpace
+
+![Terraform](../images/terraform_workspace.png)
