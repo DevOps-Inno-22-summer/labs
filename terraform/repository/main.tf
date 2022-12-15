@@ -7,13 +7,13 @@ terraform {
   }
 }
 
-variable "github_token" {
-  type        = string
-  description = "GitHub Access Token"
-}
+# variable "github_token" {
+#   type        = string
+#   description = "GitHub Access Token"
+# }
 
 provider "github" {
-  token = var.github_token
+  token = "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"
   owner = "RobertronS"
 }
 
