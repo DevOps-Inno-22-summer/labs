@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+servers=[
+  {
+    :hostname => "server-one",
+    :box => "ubuntu/xenial64",
+    :ip => "192.168.50.101",
+    :ram => 1024,
+    :cpu => 2
+  },
+  {
+    :hostname => "server-two",
+    :box => "ubuntu/xenial64",
+    :ip => "192.168.50.102",
+    :ram => 1024,
+    :cpu => 4
+  },
+  {
+    :hostname => "server-three",
+    :box => "ubuntu/xenial64",
+    :ip => "192.168.50.103",
+    :ram => 1024,
+    :cpu => 4
+  }
+]
+
+Vagrant.configure("2") do |config|
+  servers.each do |machine|
+      config.vm.define machine[:hostname] do |node|
+          node.vm.box = machine[:box]
+          node.vm.hostname = machine[:hostname]
+          node.vm.network "private_network", ip: machine[:ip]
+          node.vm.provider "virtualbox" do |vb|
+              vb.customize ["modifyvm", :id, "--memory", machine[:ram]]
+          end
+
+          node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "../app_python/playbook.yml"
+          end
+      end
+  end
+end

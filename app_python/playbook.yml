@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: Copy flask app file to the Vagrant servers
+    copy:
+      src: app.py
+      dest: /home/vagrant/app.py
