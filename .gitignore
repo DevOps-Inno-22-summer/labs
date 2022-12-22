@@ -2,3 +2,4 @@
 ./app_python/__pycache__
 *.pyc
 terraform/.vagrant/
+secret.tfvars

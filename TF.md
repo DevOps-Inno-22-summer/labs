@@ -5,6 +5,10 @@
 - Backup state file
 - Use 1 state file per Environment (test, dev, or production)
 - Use CI for terraform code
+- Generate README for each module with input and output variables
+- Update terraform version
+- Terraform version manager
+- Run terraform in docker container
 
 ### About Naming Conventions:
 
@@ -15,9 +19,12 @@
 
 Not possible to work with vagrant (VPN issues)
 
-![VagrantIssues](../images/vagrant_issues.png)
-
+![VagrantIssues](../images/lab4/vagrant_issues.png)
 
 ## Terraform WorkSpace
 
-![Terraform](../images/terraform_workspace.png)
+![Terraform](./images/lab4/terraform_workspace.png)
+
+## Yandex Cloud VM
+
+![Virtual Machine](./images/lab5/yandex-cloud.png)
