@@ -1,0 +1,7 @@
+---
+
+- name: pull python app docker image from docker-hub
+  shell: docker pull robertrons/app-python:latest
+
+- name: Run docker image (start a new container)
+  shell: docker run -d -p 8002:8002 robertrons/app-python:latest 

@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: ../roles/role-docker
+      become: true
+    - role: ../roles/deploy_app_python
+      become: true
