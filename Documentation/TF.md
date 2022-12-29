@@ -23,8 +23,8 @@ Not possible to work with vagrant (VPN issues)
 
 ## Terraform WorkSpace
 
-![Terraform](./images/lab4/terraform_workspace.png)
+![Terraform](../images/lab4/terraform_workspace.png)
 
 ## Yandex Cloud VM
 
-![Virtual Machine](./images/lab5/yandex-cloud.png)
+![Virtual Machine](../images/lab5/yandex-cloud.png)
